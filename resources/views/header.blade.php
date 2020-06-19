@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Aplikasi Management Gudang Barang Jadi PT. Solo Murni">
-    <meta name="author" content="HR-Business Analyst">
+    <meta name="author" content="HR-Business Analyst (Kurniawan E. Yulianto)">
     <link rel="icon" type="image/png" sizes="16x16" href="ampleadmin/images/logo-kiky.png">
     <title>@yield('title')</title>
     <!-- Bootstrap Core CSS -->
