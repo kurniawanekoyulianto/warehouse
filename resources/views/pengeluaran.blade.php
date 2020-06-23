@@ -54,10 +54,10 @@
                                         <option>PEMUSNAHAN</option>
                                         <option>REALISASI PM</option>
                                     </select> 
-                                </div>
+                                </div>  
                             </div>
                         </div>
-
+ 
                         <div class="form-group">
                             <div class="col-md-6">
                                 <label class="col-md-12">Nomor PM</label>
