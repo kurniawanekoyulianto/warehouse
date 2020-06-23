@@ -25,7 +25,7 @@
                                 <button class="btn waves-effect waves-light btn-warning" data-toggle="modal" data-target="#myModal"><i class="fa fa-qrcode"></i></button>
                             </span>
 
-                            <input type="text" id="qr_code" name="kode_barang" class="form-control" placeholder="Kode Barang" value="" disabled> 
+                            <input type="text" id="qr_code" name="kode_barang" class="form-control" placeholder="Kode Barang" value="" > 
                             
                             <span class="input-group-btn">
                                 <button type="button" class="btn waves-effect waves-light btn-success"><i class="fa  fa-check-circle"></i></button>
@@ -207,7 +207,7 @@
                         <div class="form-group">
                             <div class="col-md-12">
                                 <div class="col-lg-5 col-sm-4 col-xs-12">
-                                    <a href="#" class="btn btn-block btn-success">Tambah Data</a>
+                                    <button class="btn btn-block btn-success">Tambah Data</button>
                                 </div>
                                 <div class="col-lg-2 col-sm-4 col-xs-12">&nbsp;</div>
                                 <div class="col-lg-5 col-sm-4 col-xs-12">
@@ -264,7 +264,7 @@
                                     <th>Action</th>
                                 </tr>
                             </tfoot>
-                            <tbody>
+                             <tbody>
                                 <tr>
                                     <td>1.</td>
                                     <td>20061812345678</td>
@@ -287,7 +287,7 @@
                                         <button type="button" class="btn btn-danger btn-circle"><i class="fa fa-times"></i> </button>
                                     </td>
                                 </tr>
-                                <tr>
+                                <tr> 
                                     <td>2.</td>
                                     <td>20061876859029</td>
                                     <td>18/06/2020</td>
