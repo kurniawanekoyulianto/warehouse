@@ -144,7 +144,9 @@
 
                     <li> <a href="{{ url('/pengeluaran') }}" class="waves-effect"><i class="mdi mdi-cube-send fa-fw"></i> <span class="hide-menu">Pengeluaran</span></a></li>
 
-                    <li> <a href="{{ url('/mapping') }}" class="waves-effect"><i class="mdi mdi-map-marker-radius fa-fw"></i> <span class="hide-menu">Mapping Stock</span></a></li>
+                    <li> <a href="{{ url('/mapping') }}" class="waves-effect"><i class="mdi mdi-map-marker-radius fa-fw"></i> <span class="hide-menu">Mapping Stok</span></a></li>
+
+                    <li> <a href="{{ url('/cekstok') }}" class="waves-effect"><i class="mdi mdi-magnify fa-fw"></i> <span class="hide-menu">Cek Stok</span></a></li>
 
                     <li class="devider"></li>
 

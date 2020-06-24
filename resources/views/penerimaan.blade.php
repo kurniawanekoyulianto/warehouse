@@ -267,8 +267,8 @@
                                 <tr>
                                     <td>1.</td>
                                     <td>20061812345678</td>
-                                    <td>18/06/2020</td>
-                                    <td>NPB</td>
+                                    <td>23/06/2020</td>
+                                    <td>PENERIMAAN BARU</td>
                                     <td>21874947209</td>
                                     <td>ISI CUTTER KENKO / BONA KECIL</td>
                                     <td>100</td>
@@ -307,7 +307,7 @@
                                         <button type="button" class="btn btn-info btn-circle"><i class="fa fa-pencil"></i> </button>
                                         <button type="button" class="btn btn-danger btn-circle"><i class="fa fa-times"></i> </button>
                                     </td>
-                                </tr>
+                                </tr> 
                             </tbody>
                         </table>
                     </div>
@@ -396,6 +396,7 @@
 
                 if (code.data !== null) {
                     $("#myModal").modal('hide');
+                    $("#nama_barang").val('ISI CUTTER KENKO/BONA KECIL')
                 }
             } else {
               outputMessage.hidden = false;

@@ -397,6 +397,7 @@
 
                 if (code.data !== null) {
                     $("#myModal").modal('hide');
+                    $("#nama_barang").val('ISI CUTTER KENKO/BONA KECIL')
                 }
             } else {
               outputMessage.hidden = false;

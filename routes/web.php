@@ -39,6 +39,10 @@ Route::get('/mapping', function () {
     return view('mapping');
 });
 
+Route::get('/cekstok', function () {
+    return view('cekstok');
+});
+
 Route::get('/ubah-password', function () {
     return view('ubah-password');
 });
