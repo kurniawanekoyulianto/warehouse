@@ -68,48 +68,38 @@
                         </div>
                         <!-- <div class="modal-body" style="margin-left: auto; margin-right:auto; padding-bottom:auto"> -->
                             <div class="col-md-12" style="margin-top:15px ">
-                                <div class="col-md-4">NAMA BARANG</div>
-                                <div class="col-md-1">:</div>
-                                <div class="col-md-7">FOIL AG20004</div>
+                                 <!-- <div class="col-md-1"></div> -->
+                                <!-- <div class="col-md-1">:</div>-->
+                                <div class="col-md-11">NAMA : FOIL AG2K</div>
                             </div>
 
                             <div class="col-md-12">
-                                <div class="col-md-4">KODE BARANG</div>
-                                <div class="col-md-1">:</div>
-                                <div class="col-md-7">170102022</div>
+                                <!-- <div class="col-md-1">KODE</div> -->
+                                <!-- <div class="col-md-1">:</div> -->
+                                <div class="col-md-11">KODE : 170102022</div>
                             </div>
 
                             <div class="col-md-12">
-                                <div class="col-md-4">SATUAN BARANG</div>
-                                <div class="col-md-1">:</div>
-                                <div class="col-md-7">ROLL</div>
+                                <!-- <div class="col-md-1">SATUAN</div> -->
+                                <!-- <div class="col-md-1">:</div> -->
+                                <div class="col-md-11">SATUAN : ROLL</div>
                             </div>
 
                             <div class="col-md-12">
                                 <div class="white-box">
                                     <div class="table-responsive">
-                                        <table id="example" class="table display">
+                                        <table id="myTable" class="table table-striped">
                                             <thead>
                                                 <tr>
-                                                    <th style="width: 20px">No.</th>
-                                                    <th>Tgl.</th>
+                                                    <th style="width: 20px">No</th>
+                                                    <th>Tgl</th>
                                                     <th>Input</th>
                                                     <th>Output</th>
                                                     <th>Saldo</th>
                                                     <th>Keterangan</th>
                                                 </tr>
                                             </thead>
-                                            <tfoot>
-                                                <tr>
-                                                    <th style="width: 20px">No.</th>
-                                                    <th>Tgl.</th>
-                                                    <th>Input</th>
-                                                    <th>Output</th>
-                                                    <th>Saldo</th>
-                                                    <th>Keterangan</th>
-                                                </tr>
-                                            </tfoot>
-                                             <tbody>
+                                            <tbody>
                                                 <tr>
                                                     <td>1.</td>
                                                     <td>24/06/2020</td>
@@ -118,6 +108,7 @@
                                                     <td>4</td>
                                                     <td>QST/MBAG</td>
                                                 </tr>
+
                                                 <tr> 
                                                     <td>2.</td>
                                                     <td>25/06/2020</td>
@@ -125,6 +116,24 @@
                                                     <td>3.72</td>
                                                     <td>0.28</td>
                                                     <td>FIM</td>
+                                                </tr>
+
+                                                <tr> 
+                                                    <td>3.</td>
+                                                    <td>26/06/2020</td>
+                                                    <td>-</td>
+                                                    <td>0.28</td>
+                                                    <td>0</td>
+                                                    <td>FIM</td>
+                                                </tr>
+
+                                                <tr> 
+                                                    <td>4.</td>
+                                                    <td>27/06/2020</td>
+                                                    <td>1</td>
+                                                    <td>-</td>
+                                                    <td>1</td>
+                                                    <td>ROLL</td>
                                                 </tr>
                                             </tbody>
                                         </table>
