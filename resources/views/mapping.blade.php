@@ -22,82 +22,19 @@
                             <span class="input-group-btn">
                                 <button class="btn waves-effect waves-light btn-warning" data-toggle="modal" data-target="#myModal"><i class="fa fa-qrcode"></i></button>
                             </span>
-
-                            <input type="text" id="qr_code" name="kode_barang" class="form-control" placeholder="Kode Barang" value="" disabled> 
+                            
+                            <input type="text" id="qr_code" name="kode_barang" class="form-control" placeholder="Kode Barang / Nama Barang" value=""> 
                             
                             <span class="input-group-btn">
-                                <button type="button" class="btn waves-effect waves-light btn-success"><i class="fa  fa-check-circle"></i></button>
+                                <button type="button" class="btn waves-effect waves-light btn-success" onclick="myHide()"><i class="fa  fa-check-circle"></i></button>
                             </span> 
-                        </div>
+                        </>
                     </div>
                     <!-- /End input tag untuk scanner QR Code -->
-                    <form class="form-horizontal">
-                        <div class="form-group">
-                            <div class="col-md-6">
-                                <label class="col-md-12">Nama Barang</label>
-                                <div class="col-md-12">
-                                    <input type="text" id="nama_barang" name="nama_barang" class="form-control"> 
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="col-md-12">Stok Barang</label>
-                                <div class="col-md-12">
-                                    <input type="text" id="stok_barang" name="stok_barang" class="form-control"> 
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6">
-                                <label class="col-md-12">Satuan</label>
-                                <div class="col-md-12">
-                                    <input type="text" id="satuan" name="satuan" class="form-control"> 
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="col-md-12">Harga</label>
-                                <div class="col-md-12">
-                                    <input type="text" id="harga" name="harga" class="form-control"> 
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6">
-                                <label class="col-md-12">Gudang</label>
-                                <div class="col-md-12">
-                                    <input type="text" id="gudang" name="gudang" class="form-control"> 
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="col-md-12">Area</label>
-                                <div class="col-md-12">
-                                    <input type="text" id="area" name="area" class="form-control"> 
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-4">
-                                <label class="col-md-12">Blok</label>
-                                <div class="col-md-12">
-                                    <input type="text" id="blok" name="blok" class="form-control"> 
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <label class="col-md-12">Tingkat</label>
-                                <div class="col-md-12">
-                                    <input type="text" id="tingkat" name="tingkat" class="form-control"> 
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <label class="col-md-12">Plong</label>
-                                <div class="col-md-12">
-                                    <input type="text" id="plong" name="plong" class="form-control"> 
-                                </div>
-                            </div>
-                        </div>
-                    </form>
+                    <div>
+                        <h3 align="center" id="mapping" style="visibility: hidden"><b>GUDANG BAHAN PEMBANTU - AREA DEPAN - RAK BLOK B</b></h3>
+                    </div>
+                    <img id="mapping1" src="ampleadmin/images/Mapping.png" alt="" width="990px" height="230px" style="visibility:hidden" data-toggle="modal" data-target="#myModalTemp">
 
                     <!-- Modal Scanner QR Code -->
                     <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -115,6 +52,52 @@
                                             <span id="outputData"></span>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                            <!-- /.modal-content -->
+                        </div>
+                        <!-- /.modal-dialog -->
+                    </div>
+                    <!-- /.modal -->
+
+                    <div id="myModalTemp" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                    <h4 class="modal-title" id="myModalLabel">Informasi Detail Barang</h4> </div>
+                                <div class="modal-body" style="margin-left: auto; margin-right:auto;">
+                                    <table>
+                                        <tr>
+                                            <td>NAMA BARANG</td>
+                                            <td>&nbsp;:&nbsp;</td>
+                                            <td><b>FOIL AG20004</b></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>KODE BARANG</td>
+                                            <td>&nbsp;:&nbsp;</td>
+                                            <td>170102022</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>STOK</td>
+                                            <td>&nbsp;:&nbsp;</td>
+                                            <td>500</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>SATUAN</td>
+                                            <td>&nbsp;:&nbsp;</td>
+                                            <td>ROLL</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>SUPPLIER</td>
+                                            <td>&nbsp;:&nbsp;</td>
+                                            <td>SHANDONG HONGDING STEEL LTD.</td>
+                                        </tr>
+                                    </table>
                                 </div>
                             </div>
                             <!-- /.modal-content -->
@@ -190,7 +173,11 @@
           }
           requestAnimationFrame(tick);
         }
+ 
+        function myHide() {
+            document.getElementById("mapping").style.visibility = "visible";
+            document.getElementById("mapping1").style.visibility = "visible";
+        }
       </script>
     @include('footer')
 @endsection
-

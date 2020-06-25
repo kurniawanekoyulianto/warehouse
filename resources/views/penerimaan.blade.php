@@ -218,7 +218,7 @@
                     <!-- /End input tag untuk detail barang -->
 
                     <!-- Table temporary -->
-                    <h3 class="box-title m-b-0">Daftar Pengeluaran Barang</h3>
+                    <h3 class="box-title m-b-0">Daftar Penerimaan Barang</h3>
                     <div class="table-responsive">
                         <table id="example23" class="display nowrap" cellspacing="0" width="100%">
                             <thead>
@@ -286,7 +286,7 @@
                                         <button type="button" class="btn btn-danger btn-circle"><i class="fa fa-times"></i> </button>
                                     </td>
                                 </tr>
-                                <tr>
+                                <!-- <tr>
                                     <td>2.</td>
                                     <td>20061876859029</td>
                                     <td>18/06/2020</td>
@@ -307,7 +307,7 @@
                                         <button type="button" class="btn btn-info btn-circle"><i class="fa fa-pencil"></i> </button>
                                         <button type="button" class="btn btn-danger btn-circle"><i class="fa fa-times"></i> </button>
                                     </td>
-                                </tr> 
+                                </tr> -->
                             </tbody>
                         </table>
                     </div>

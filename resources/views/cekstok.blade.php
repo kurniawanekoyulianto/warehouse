@@ -68,21 +68,23 @@
                         </div>
                         <!-- <div class="modal-body" style="margin-left: auto; margin-right:auto; padding-bottom:auto"> -->
                             <div class="col-md-12" style="margin-top:15px ">
-                                 <!-- <div class="col-md-1"></div> -->
-                                <!-- <div class="col-md-1">:</div>-->
-                                <div class="col-md-11">NAMA : FOIL AG2K</div>
-                            </div>
-
-                            <div class="col-md-12">
-                                <!-- <div class="col-md-1">KODE</div> -->
-                                <!-- <div class="col-md-1">:</div> -->
-                                <div class="col-md-11">KODE : 170102022</div>
-                            </div>
-
-                            <div class="col-md-12">
-                                <!-- <div class="col-md-1">SATUAN</div> -->
-                                <!-- <div class="col-md-1">:</div> -->
-                                <div class="col-md-11">SATUAN : ROLL</div>
+                                <table>
+                                    <tr>
+                                        <td>NAMA</td>
+                                        <td>&nbsp; : &nbsp;</td>
+                                        <td>FOIL AG20004</td>
+                                    </tr>
+                                    <tr>
+                                        <td>KODE</td>
+                                        <td>&nbsp; : &nbsp;</td>
+                                        <td>170102022</td>
+                                    </tr>
+                                    <tr>
+                                        <td>SATUAN</td>
+                                        <td>&nbsp; : &nbsp;</td>
+                                        <td>ROLL</td>
+                                    </tr>
+                                </table>
                             </div>
 
                             <div class="col-md-12">
