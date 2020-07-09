@@ -32,7 +32,7 @@
                             </span> 
                         </div>
                     </div>
-                    <!-- /End input tag untuk scanner QR Code -->
+                    <!-- /End input tag untuk scanner QR-Code -->
 
                     <!-- Input tag untuk detail barang -->
                     <form class="form-horizontal">
@@ -59,7 +59,7 @@
 
                         <div class="form-group">
                             <div class="col-md-6">
-                                <label class="col-md-12">Nomor NPB</label>
+                                <label class="col-md-12">Nomor  NPB/BPB</label>
                                 <div class="col-md-12">
                                     <input type="text" id="no_pm" name="no_pm" class="form-control"> 
                                 </div>
@@ -227,7 +227,7 @@
                                     <th>Barcode</th>
                                     <th>Tgl. Administrasi</th>
                                     <th>Keperluan</th>
-                                    <th>No. PM</th>
+                                    <th>No. Terima</th>
                                     <th>Nama Barang</th>
                                     <th>Qty</th>
                                     <th>Satuan</th>
@@ -248,7 +248,7 @@
                                     <th>Barcode</th>
                                     <th>Tgl. Administrasi</th>
                                     <th>Keperluan</th>
-                                    <th>No. PM</th>
+                                    <th>No. Terima</th>
                                     <th>Nama Barang</th>
                                     <th>Qty</th>
                                     <th>Satuan</th>
@@ -269,10 +269,10 @@
                                     <td>20061812345678</td>
                                     <td>23/06/2020</td>
                                     <td>PENERIMAAN BARU</td>
-                                    <td>21874947209</td>
-                                    <td>ISI CUTTER KENKO / BONA KECIL</td>
-                                    <td>100</td>
-                                    <td>PCS</td>
+                                    <td>202006250001</td>
+                                    <td>LEM FLA</td>
+                                    <td>15</td>
+                                    <td>KG</td>
                                     <td>7B601197</td>
                                     <td>GUDANG BAHAN PEMBANTU</td>
                                     <td>-</td>
@@ -286,28 +286,6 @@
                                         <button type="button" class="btn btn-danger btn-circle"><i class="fa fa-times"></i> </button>
                                     </td>
                                 </tr>
-                                <!-- <tr>
-                                    <td>2.</td>
-                                    <td>20061876859029</td>
-                                    <td>18/06/2020</td>
-                                    <td>NPB</td>
-                                    <td>21874947209</td>
-                                    <td>LEM A 8050</td>
-                                    <td>9</td>
-                                    <td>KG</td>
-                                    <td>7B601197</td>
-                                    <td>GUDANG BAHAN PEMBANTU</td>
-                                    <td>-</td>
-                                    <td>GUDANG DEPAN</td>
-                                    <td>BLOK A</td>
-                                    <td>2</td>
-                                    <td>1</td>
-                                    <td>PM URGENT</td>
-                                    <td>
-                                        <button type="button" class="btn btn-info btn-circle"><i class="fa fa-pencil"></i> </button>
-                                        <button type="button" class="btn btn-danger btn-circle"><i class="fa fa-times"></i> </button>
-                                    </td>
-                                </tr> -->
                             </tbody>
                         </table>
                     </div>
@@ -396,7 +374,6 @@
 
                 if (code.data !== null) {
                     $("#myModal").modal('hide');
-                    $("#nama_barang").val('ISI CUTTER KENKO/BONA KECIL')
                 }
             } else {
               outputMessage.hidden = false;
