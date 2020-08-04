@@ -3,7 +3,7 @@
 
 @section('konten')
     <!-- ============================================================== -->
-    <!-- Page Content -->
+    <!-- Page Content | QR Code Scanner -->
     <!-- ============================================================== -->
     <div class="container-fluid">
         <!-- Start Page -->
@@ -87,6 +87,7 @@
                 //outputData.parentElement.hidden = false;
                 //outputData.innerText = code.data;
                 //document.getElementById("demo").innerHTML = code.data;
+                //Output value QR Code
                 $("#qr_code").val(code.data);
             } else {
               outputMessage.hidden = false;
