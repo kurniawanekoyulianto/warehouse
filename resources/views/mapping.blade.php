@@ -26,15 +26,20 @@
                             <input type="text" id="qr_code" name="kode_barang" class="form-control" placeholder="Kode Barang / Nama Barang" value=""> 
                             
                             <span class="input-group-btn">
-                                <button type="button" class="btn waves-effect waves-light btn-success" onclick="myHide()"><i class="fa  fa-check-circle"></i></button>
+                                <button type="button" class="btn waves-effect waves-light btn-success"><i class="fa  fa-check-circle"></i></button>
                             </span> 
                         </>
                     </div>
                     <!-- /End input tag untuk scanner QR Code -->
-                    <div>
-                        <h3 align="center" id="mapping" style="visibility: hidden"><b>GUDANG BAHAN PEMBANTU - AREA DEPAN - RAK BLOK B</b></h3>
-                    </div>
-                    <img id="mapping1" src="ampleadmin/images/Mapping.png" alt="" width="990px" height="230px" style="visibility:hidden" data-toggle="modal" data-target="#myModalTemp">
+                    
+                    
+                    <!-- Mapping svg -->
+                    <br>
+                    @include('mapping/rda')
+                    <br><hr>
+                    @include('mapping/rdb')
+                    <!-- End mapping svg -->
+                    
 
                     <!-- Modal Scanner QR Code -->
                     <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -45,7 +50,7 @@
                                     <h4 class="modal-title" id="myModalLabel">Scan QR Code</h4> </div>
                                 <div class="modal-body" style="margin-left: auto; margin-right:auto;">
                                     <div id="loadingMessage">🎥 Unable to access video stream (please make sure you have a webcam enabled)</div>
-                                    <canvas id="canvas" style="width: 100%; height:100%;" hidden></canvas>
+                                    <canvas id="canvas" style="width: 100%; height:100%;"></canvas>
                                     <div id="output" hidden style="color: white">
                                         <div id="outputMessage">No QR code detected.</div>
                                         <div hidden><b>Data:</b> 
@@ -172,11 +177,6 @@
             }
           }
           requestAnimationFrame(tick);
-        }
- 
-        function myHide() {
-            document.getElementById("mapping").style.visibility = "visible";
-            document.getElementById("mapping1").style.visibility = "visible";
         }
       </script>
     @include('footer')

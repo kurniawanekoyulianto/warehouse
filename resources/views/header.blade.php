@@ -35,6 +35,19 @@
     <link href="ampleadmin/css/style.css" rel="stylesheet" type="text/css">
     <!-- color CSS -->
     <link href="ampleadmin/css/colors/default.css" id="theme" rel="stylesheet" type="text/css">
+    <!-- Mapping Gudang (GIS) CSS -->
+    <link href="gis/rda.css" id="theme" rel="stylesheet" type="text/css">
+    <link href="gis/rdb.css" id="theme" rel="stylesheet" type="text/css">
+    <link href="gis/rdc.css" id="theme" rel="stylesheet" type="text/css">
+    <link href="gis/rdd.css" id="theme" rel="stylesheet" type="text/css">
+    <link href="gis/rde.css" id="theme" rel="stylesheet" type="text/css">
+    <link href="gis/rdf.css" id="theme" rel="stylesheet" type="text/css">
+    <link href="gis/rdg.css" id="theme" rel="stylesheet" type="text/css">
+    <link href="gis/rdh.css" id="theme" rel="stylesheet" type="text/css">
+    <link href="gis/rka.css" id="theme" rel="stylesheet" type="text/css">
+    <link href="gis/rkb.css" id="theme" rel="stylesheet" type="text/css">
+    <link href="gis/rkc.css" id="theme" rel="stylesheet" type="text/css">
+
     <!-- Scanner JQuery -->
     <script src="js/jsQR.js"></script>
     
@@ -83,13 +96,13 @@
                 </ul>
                 <ul class="nav navbar-top-links navbar-right pull-right">
                     <li class="dropdown">
-                        <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"> <img src="ampleadmin/images/users/varun.jpg" alt="user-img" width="36" class="img-circle"><b class="hidden-xs">Kurniawan E. Yulianto</b><span class="caret"></span> </a>
+                        <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"> <img src="ampleadmin/images/users/varun.jpg" alt="user-img" width="36" class="img-circle"><b class="hidden-xs">Administrator</b><span class="caret"></span> </a>
                         <ul class="dropdown-menu dropdown-user animated flipInY">
                             <li>
                                 <div class="dw-user-box">
                                     <div class="u-img"><img src="ampleadmin/images/users/varun.jpg" alt="user" /></div>
                                     <div class="u-text">
-                                        <h4>Kurniawan E. Yulianto</h4>
+                                        <h4>Administrator</h4>
                                         <p class="text-muted">Super Admin</p><a href="profile.html" class="btn btn-rounded btn-danger btn-sm">View Profile</a></div>
                                 </div>
                             </li>
@@ -119,7 +132,7 @@
                 <div class="user-profile">
                     <div class="dropdown user-pro-body">
                         <div><img src="ampleadmin/images/users/varun.jpg" alt="user-img" class="img-circle"></div>
-                        <a href="#" class="dropdown-toggle u-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kurniawan E. Yulianto <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle u-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Administrator <span class="caret"></span></a>
                         <ul class="dropdown-menu animated flipInY">
                             <li><a href="#"><i class="ti-settings"></i> Account Setting</a></li>
                             <li role="separator" class="divider"></li>
