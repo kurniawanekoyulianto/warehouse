@@ -1,0 +1,16 @@
+@charset "UTF-8";
+@font-face { font-family:"Bebas Neue";src:url("#FontID0") format(svg)}
+.str0 {stroke:gray;stroke-width:1.49627}
+.fil5 {fill:none}
+.fil6 {fill:black}
+.fil2 {fill:#734D22} /* Box Right */
+/*.fil2:hover {fill:yellow} */
+.fil1 {fill:#B37D3E} /* Box Top */
+/*.fil1:hover {fill:yellow}*/
+.fil3 {fill:#B58957} /* Box Front */
+.fil3:hover {fill:#FFC400}
+.fil0 {fill:#E6E6E6} /* Background Plong */
+.fil0:hover {fill:yellow}
+.fil4 {fill:white}
+.fnt0 {font-weight:normal;font-size:97.3085px;font-family:'Bebas Neue'}
+.fnt1 {font-weight:normal;font-size:109.809px;font-family:'Bebas Neue'}
