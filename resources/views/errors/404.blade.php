@@ -9,7 +9,7 @@
 <link rel="icon" type="image/png" sizes="16x16" href="../ampleadmin/images/favicon.png">
 <title>404 - Halaman Tidak Ditemukan!</title>
 <!-- Bootstrap Core CSS -->
-<link href="../admpleadmin/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="../ampleadmin/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 <!-- animation CSS -->
 <link href="../ampleadmin/css/animate.css" rel="stylesheet">
 
@@ -40,7 +40,5 @@
 <script src="../ampleadmin/bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap Core JavaScript -->
 <script src="../ampleadmin/bootstrap/dist/js/bootstrap.min.js"></script>
-
-
 </body>
 </html>
