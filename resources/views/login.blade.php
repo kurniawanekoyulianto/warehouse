@@ -45,11 +45,19 @@
         <div class="white-box">
             <h3 class="box-title m-b-0">LogIn Administrator</h3>
             <small>Masukkan data NIK dan Kata Sandi Anda dengan benar!</small>
-            <form class="form-horizontal new-lg-form" id="loginform" action="index.html">
+
+            
+            {{-- @if(session()->has('pesan'))
+                <div class="alertalert-infow-50">
+                    {{ session()->get('pesan') }}
+                </div>
+            @endif --}}
+            
+            <form class="form-horizontal new-lg-form" id="loginform" action="{{ url('/login') }}" method="POST">
                 <div class="form-group  m-t-20">
                     <div class="col-xs-12">
                         <label>NIK Karyawan</label>
-                        <input class="form-control text-uppercase" type="text" required="" placeholder="NIK">
+                        <input class="form-control text-uppercase" type="text" required="" id="username" name="username" value="{{ old('username') }}" placeholder="NIK">
                     </div>
                 </div>
 
@@ -68,6 +76,10 @@
                         <button class="btn btn-primary btn-md btn-block btn-rounded text-uppercase waves-effect waves-light" type="reset">Reset</button>
                     </div>
                 </div>
+
+                {{-- @error('username')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror --}}
             </form>
         </div>
     </div>            

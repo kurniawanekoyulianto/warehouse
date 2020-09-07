@@ -147,9 +147,8 @@
                     <li> <a href="#" class="waves-effect"><i class="mdi mdi-database fa-fw"></i> <span class="hide-menu">Data Master<span class="fa arrow"></span></span></a>
                         <ul class="nav nav-second-level">
                             <li><a href="{{ url('/users') }}"><i class="mdi mdi-account-card-details fa-fw"></i> <span class="hide-menu">Pengguna</span></a></li>
-                            <li><a href="#"><i data-icon="&#xe025;" class="mdi mdi-package-variant fa-fw"></i> <span class="hide-menu">Barang</span></a></li>
-                            <li><a href="#"><i class="mdi mdi-weight-kilogram fa-fw"></i> <span class="hide-menu">Satuan</span></a></li>
-                            <li><a href="#"><i class="mdi mdi-fridge-filled-top fa-fw"></i> <span class="hide-menu">Rak</span></a></li>
+                            <li><a href="{{ url('/blok') }}"><i data-icon="&#xe025;" class="mdi mdi-factory fa-fw"></i> <span class="hide-menu">Blok</span></a></li>
+                            <li><a href="{{ url('/plong') }}"><i class="mdi mdi-layers fa-fw"></i> <span class="hide-menu">Plong</span></a></li>
                         </ul>
                     </li>
                     

@@ -26,7 +26,7 @@
                             <input type="text" id="qr_code" name="kode_barang" class="form-control" placeholder="Kode Barang / Nama Barang" value=""> 
                             
                             <span class="input-group-btn">
-                                <button type="button" class="btn waves-effect waves-light btn-success"><i class="fa  fa-check-circle"></i></button>
+                                <button type="button" class="btn waves-effect waves-light btn-success" data-toggle="modal" data-target="#myModalTemp"><i class="fa  fa-check-circle"></i></button>
                             </span> 
                         </>
                     </div>
@@ -36,10 +36,6 @@
                     <!-- Mapping svg -->
                     <br>
                     @include('mapping/rda')
-                    <br><hr>
-                    @include('mapping/rdb')
-                    <!-- End mapping svg -->
-                    
 
                     <!-- Modal Scanner QR Code -->
                     <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -82,7 +78,7 @@
                                         <tr>
                                             <td>KODE BARANG</td>
                                             <td>&nbsp;:&nbsp;</td>
-                                            <td>170102022</td>
+                                            <td>FG08364927</td>
                                         </tr>
 
                                         <tr>

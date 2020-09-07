@@ -11,38 +11,57 @@
 |
 */
 
+//Home
 Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/login', function () {
-    return view('login');
-});
+Route::get('/login','UsersController@login');
+Route::post('/login','UsersController@prosesLogin');
+Route::get('/logout ','UsersController@logout');
+//Route::redirect('/','/login');
 
+Route::get('/daftar-users','UsersController@daftarUsers')->middleware('login');
+Route::get('/tabel-users','UsersController@tabelUsers')->middleware('login');
+Route::get('/blog-users','UsersController@blogUsers')->middleware('login');
+
+//Users
 Route::get('/users', function () {
     return view('users');
 });
 
+//Blok Gudang
+Route::get('/blok','BlokController@index')->name('blok.index');
+Route::get('/blok-add','BlokController@create')->name('blok.create');
+Route::get('/blok/d/{id}','BlokController@destroy')->name('blok.destroy');
+Route::post('/blok','BlokController@store')->name('blok.store');
+
+//Scanner
 Route::get('/scanner', function () {
     return view('scanner');
 });
 
+//Penerimaan
 Route::get('/penerimaan', function () {
     return view('penerimaan');
 });
 
+//Pengeluaran
 Route::get('/pengeluaran', function () {
     return view('pengeluaran');
 });
 
+//Mapping Gudang
 Route::get('/mapping', function () {
     return view('mapping');
 });
 
+//Cek Stok
 Route::get('/cekstok', function () {
     return view('cekstok');
 });
 
+//Ubah Password
 Route::get('/ubah-password', function () {
     return view('ubah-password');
 });
