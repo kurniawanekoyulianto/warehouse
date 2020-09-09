@@ -34,8 +34,12 @@ Route::get('/users', function () {
 Route::get('/blok','BlokController@index')->name('blok.index');
 Route::get('/blok-add','BlokController@create')->name('blok.create');
 Route::get('/blok/d/{id}','BlokController@destroy')->name('blok.destroy');
-Route::get('/blok/u/{id}','BlokController@update')->name('blok.edit');
+Route::get('/blok/u/{id}','BlokController@edit')->name('blok.edit');
 Route::post('/blok/save','BlokController@store')->name('blok.store');
+Route::post('/blok/update','BlokController@update')->name('blok.update');
+
+// barang
+Route::get('/barang','BarangController@index')->name('barang.index');
 
 //Scanner
 Route::get('/scanner', function () {
