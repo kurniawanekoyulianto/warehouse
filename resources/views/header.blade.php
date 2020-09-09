@@ -7,49 +7,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Aplikasi Management Gudang Barang Jadi PT. Solo Murni">
     <meta name="author" content="HR-Business Analyst (Kurniawan E. Yulianto)">
-    <link rel="icon" type="image/png" sizes="16x16" href="ampleadmin/images/logo-kiky.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url('/') }}/ampleadmin/images/logo-kiky.png">
     <title>@yield('title')</title>
     <!-- Bootstrap Core CSS -->
-    <link href="ampleadmin/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="ampleadmin/bower_components/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{ url('/') }}/ampleadmin/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url('/') }}/ampleadmin/bower_components/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
     <link href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css" rel="stylesheet" type="text/css" />
     <!-- Menu CSS -->
-    <link href="ampleadmin/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet" type="text/css">
+    <link href="{{ url('/') }}/ampleadmin/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet" type="text/css">
     <!--alerts CSS -->
-    <link href="ampleadmin/bower_components/sweetalert/sweetalert.css" rel="stylesheet" type="text/css">
+    <link href="{{ url('/') }}/ampleadmin/bower_components/sweetalert/sweetalert.css" rel="stylesheet" type="text/css">
     <!-- Date picker plugins css -->
-    <link href="ampleadmin/bower_components/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{ url('/') }}/ampleadmin/bower_components/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css" />
     <!-- Daterange picker plugins css -->
-    <link href="ampleadmin/bower_components/timepicker/bootstrap-timepicker.min.css" rel="stylesheet">
-    <link href="ampleadmin/bower_components/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+    <link href="{{ url('/') }}/ampleadmin/bower_components/timepicker/bootstrap-timepicker.min.css" rel="stylesheet">
+    <link href="{{ url('/') }}/ampleadmin/bower_components/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
     <!-- Page CSS -->
-    <link href="ampleadmin/bower_components/custom-select/custom-select.css" rel="stylesheet" type="text/css" />
-    <link href="ampleadmin/bower_components/switchery/dist/switchery.min.css" rel="stylesheet" />
-    <link href="ampleadmin/bower_components/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
-    <link href="ampleadmin/bower_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.css" rel="stylesheet" />
-    <link href="ampleadmin/bower_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css" rel="stylesheet" />
-    <link href="ampleadmin/bower_components/multiselect/css/multi-select.css" rel="stylesheet" type="text/css" />
+    <link href="{{ url('/') }}/ampleadmin/bower_components/custom-select/custom-select.css" rel="stylesheet" type="text/css" />
+    <link href="{{ url('/') }}/ampleadmin/bower_components/switchery/dist/switchery.min.css" rel="stylesheet" />
+    <link href="{{ url('/') }}/ampleadmin/bower_components/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
+    <link href="{{ url('/') }}/ampleadmin/bower_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.css" rel="stylesheet" />
+    <link href="{{ url('/') }}/ampleadmin/bower_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css" rel="stylesheet" />
+    <link href="{{ url('/') }}/ampleadmin/bower_components/multiselect/css/multi-select.css" rel="stylesheet" type="text/css" />
     <!-- animation CSS -->
-    <link href="ampleadmin/css/animate.css" rel="stylesheet" type="text/css">
+    <link href="{{ url('/') }}/ampleadmin/css/animate.css" rel="stylesheet" type="text/css">
     <!-- Custom CSS -->
-    <link href="ampleadmin/css/style.css" rel="stylesheet" type="text/css">
+    <link href="{{ url('/') }}/ampleadmin/css/style.css" rel="stylesheet" type="text/css">
     <!-- color CSS -->
-    <link href="ampleadmin/css/colors/default.css" id="theme" rel="stylesheet" type="text/css">
+    <link href="{{ url('/') }}/ampleadmin/css/colors/default.css" id="theme" rel="stylesheet" type="text/css">
     <!-- Mapping Gudang (GIS) CSS -->
-    <link href="gis/rda.css" id="theme" rel="stylesheet" type="text/css">
-    <link href="gis/rdb.css" id="theme" rel="stylesheet" type="text/css">
-    <link href="gis/rdc.css" id="theme" rel="stylesheet" type="text/css">
-    <link href="gis/rdd.css" id="theme" rel="stylesheet" type="text/css">
-    <link href="gis/rde.css" id="theme" rel="stylesheet" type="text/css">
-    <link href="gis/rdf.css" id="theme" rel="stylesheet" type="text/css">
-    <link href="gis/rdg.css" id="theme" rel="stylesheet" type="text/css">
-    <link href="gis/rdh.css" id="theme" rel="stylesheet" type="text/css">
-    <link href="gis/rka.css" id="theme" rel="stylesheet" type="text/css">
-    <link href="gis/rkb.css" id="theme" rel="stylesheet" type="text/css">
-    <link href="gis/rkc.css" id="theme" rel="stylesheet" type="text/css">
+    <link href="{{ url('/') }}/gis/rda.css" id="theme" rel="stylesheet" type="text/css">
+    <link href="{{ url('/') }}/gis/rdb.css" id="theme" rel="stylesheet" type="text/css">
+    <link href="{{ url('/') }}/gis/rdc.css" id="theme" rel="stylesheet" type="text/css">
+    <link href="{{ url('/') }}/gis/rdd.css" id="theme" rel="stylesheet" type="text/css">
+    <link href="{{ url('/') }}/gis/rde.css" id="theme" rel="stylesheet" type="text/css">
+    <link href="{{ url('/') }}/gis/rdf.css" id="theme" rel="stylesheet" type="text/css">
+    <link href="{{ url('/') }}/gis/rdg.css" id="theme" rel="stylesheet" type="text/css">
+    <link href="{{ url('/') }}/gis/rdh.css" id="theme" rel="stylesheet" type="text/css">
+    <link href="{{ url('/') }}/gis/rka.css" id="theme" rel="stylesheet" type="text/css">
+    <link href="{{ url('/') }}/gis/rkb.css" id="theme" rel="stylesheet" type="text/css">
+    <link href="{{ url('/') }}/gis/rkc.css" id="theme" rel="stylesheet" type="text/css">
 
     <!-- Scanner JQuery -->
-    <script src="js/jsQR.js"></script>
+    <script src="{{ url('/') }}/js/jsQR.js"></script>
     
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -82,10 +82,10 @@
                     <!-- Logo -->
                     <a class="logo" href="{{ url('/home') }}">
                         <!-- Logo icon image, you can use font-icon also --><b>
-                        <!--This is dark logo icon--><img src="ampleadmin/images/box-logo.png" alt="home" class="dark-logo" /><!--This is light logo icon--><img src="ampleadmin/images/box-logo-dark.png" alt="home" class="light-logo" />
+                        <!--This is dark logo icon--><img src="{{ url('/') }}/ampleadmin/images/box-logo.png" alt="home" class="dark-logo" /><!--This is light logo icon--><img src="{{ url('/') }}/ampleadmin/images/box-logo-dark.png" alt="home" class="light-logo" />
                      </b>
                         <!-- Logo text image you can use text also --><span class="hidden-xs">
-                        <!--This is dark logo text--><img src="ampleadmin/images/box-text.png" alt="home" class="dark-logo" /><!--This is light logo text--><img src="ampleadmin/images/box-text-dark.png" alt="home" class="light-logo" />
+                        <!--This is dark logo text--><img src="{{ url('/') }}/ampleadmin/images/box-text.png" alt="home" class="dark-logo" /><!--This is light logo text--><img src="{{ url('/') }}/ampleadmin/images/box-text-dark.png" alt="home" class="light-logo" />
                      </span> </a>
                 </div>
                 <!-- /Logo -->
@@ -96,11 +96,11 @@
                 </ul>
                 <ul class="nav navbar-top-links navbar-right pull-right">
                     <li class="dropdown">
-                        <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"> <img src="ampleadmin/images/users/varun.jpg" alt="user-img" width="36" class="img-circle"><b class="hidden-xs">Administrator</b><span class="caret"></span> </a>
+                        <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"> <img src="{{ url('/') }}/ampleadmin/images/users/varun.jpg" alt="user-img" width="36" class="img-circle"><b class="hidden-xs">Administrator</b><span class="caret"></span> </a>
                         <ul class="dropdown-menu dropdown-user animated flipInY">
                             <li>
                                 <div class="dw-user-box">
-                                    <div class="u-img"><img src="ampleadmin/images/users/varun.jpg" alt="user" /></div>
+                                    <div class="u-img"><img src="{{ url('/') }}/ampleadmin/images/users/varun.jpg" alt="user" /></div>
                                     <div class="u-text">
                                         <h4>Administrator</h4>
                                         <p class="text-muted">Super Admin</p><a href="profile.html" class="btn btn-rounded btn-danger btn-sm">View Profile</a></div>
@@ -131,7 +131,7 @@
                 </div>
                 <div class="user-profile">
                     <div class="dropdown user-pro-body">
-                        <div><img src="ampleadmin/images/users/varun.jpg" alt="user-img" class="img-circle"></div>
+                        <div><img src="{{ url('/') }}/ampleadmin/images/users/varun.jpg" alt="user-img" class="img-circle"></div>
                         <a href="#" class="dropdown-toggle u-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Administrator <span class="caret"></span></a>
                         <ul class="dropdown-menu animated flipInY">
                             <li><a href="#"><i class="ti-settings"></i> Account Setting</a></li>

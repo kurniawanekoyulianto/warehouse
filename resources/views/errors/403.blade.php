@@ -6,17 +6,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="author" content="">
-<link rel="icon" type="image/png" sizes="16x16" href="../ampleadmin/images/favicon.png">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ url('/') }}/ampleadmin/images/favicon.png">
 <title>403 - Forbidden!</title>
 <!-- Bootstrap Core CSS -->
-<link href="../ampleadmin/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="{{ url('/') }}/ampleadmin/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 <!-- animation CSS -->
-<link href="../ampleadmin/css/animate.css" rel="stylesheet">
+<link href="{{ url('/') }}/ampleadmin/css/animate.css" rel="stylesheet">
 
 <!-- Custom CSS -->
-<link href="../ampleadmin/css/style.css" rel="stylesheet">
+<link href="{{ url('/') }}/ampleadmin/css/style.css" rel="stylesheet">
 <!-- color CSS -->
-<link href="../ampleadmin/css/colors/default.css" id="theme"  rel="stylesheet">
+<link href="{{ url('/') }}/ampleadmin/css/colors/default.css" id="theme"  rel="stylesheet">
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
@@ -37,9 +37,9 @@
   </div>
 </section>
 <!-- jQuery -->
-<script src="../ampleadmin/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="{{ url('/') }}/ampleadmin/bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap Core JavaScript -->
-<script src="../ampleadmin/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="{{ url('/') }}/ampleadmin/bootstrap/dist/js/bootstrap.min.js"></script>
 
 </body>
 </html>
