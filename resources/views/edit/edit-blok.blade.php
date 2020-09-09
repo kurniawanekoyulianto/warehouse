@@ -9,13 +9,14 @@
             <div class="col-md-12">
                 <div class="white-box">
                     <h3 class="box-title">Edit Blok</h3> 
+                    @foreach($data as $d)
                     <form class="form-horizontal" action="{{ route('blok.store') }}" method="POST" >
                         {{ csrf_field() }}
                         <div class="form-group"> 
                             <div class="col-md-12">
                                 <label class="col-md-12">Kode Blok</label>
                                 <div class="col-md-12">
-                                    <input type="text" id="kode_gudang_blok" name="kode_gudang_blok" class="form-control" required> 
+                                <input type="text" id="kode_gudang_blok" name="kode_gudang_blok" class="form-control" value="{{ $d->kode_gudang_blok }}" required> 
                                 </div>
                             </div>
                         </div>
@@ -24,7 +25,7 @@
                             <div class="col-md-12">
                                 <label class="col-md-12">Nama Blok</label>
                                 <div class="col-md-12">
-                                    <input type="text" id="nama_gd_blok" name="nama_gd_blok" class="form-control" required> 
+                                    <input type="text" id="nama_gd_blok" name="nama_gd_blok" class="form-control" value="{{ $d->nama_gd_blok }}" required> 
                                 </div>
                             </div>
                         </div>
@@ -35,6 +36,9 @@
                                 <div class="col-md-12">
                                     <select class="form-control select2" name="kode_bagian" required>
                                         <option value="">Pilih Area</option>
+                                        @foreach ($area as $a)
+                                        <option value="">{{ $a->nama_bagian }}</option>
+                                        @endforeach
                                     </select> 
                                 </div>
                             </div>
@@ -54,6 +58,7 @@
                             </div>
                         </div>
                     </form>
+                    @endforeach
                 </div>
             </div>
         </div>

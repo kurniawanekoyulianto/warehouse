@@ -34,10 +34,11 @@ class BlokController extends Controller
     public function update($id) {
         // mengambil data blok berdasarkan id yang dipilih
         // passing data blok yang didapat ke view form-blok.blade.php
-       $blok = DB::table('tbl_master_gd_blok')->where('id_gd_blok', $id)->get();
+        $blok = DB::table('tbl_master_gd_blok')->where('id_gd_blok', $id)->get();
         
         // retrieve data area atau bagian
-        return view('edit.edit-blok', ['data' => $blok]);
+        $area = DB::table('tbl_master_bagian')->get();
+        return view('edit.edit-blok', compact('data', 'area'));
         //return $blok;
     } 
 
