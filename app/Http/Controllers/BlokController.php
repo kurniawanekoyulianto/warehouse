@@ -9,7 +9,7 @@ class BlokController extends Controller
 {
     // Menampilkan semua data blok gudang
     public function index() {
-        $blok =  DB::select('SELECT * FROM vw_gudang_blok');
+        $blok =  DB::select('SELECT * FROM vw_master_gd_blok');
         return view('blok', ['blok' => $blok]);
     }
 
@@ -35,7 +35,7 @@ class BlokController extends Controller
     public function edit($id) {
         // mengambil data blok berdasarkan id yang dipilih
         // passing data blok yang didapat ke view form-blok.blade.php
-        $blok = DB::select('SELECT * FROM vw_gudang_blok WHERE id_gd_blok = '.$id);
+        $blok = DB::select('SELECT * FROM vw_master_gd_blok WHERE id_gd_blok = '.$id);
 
         // retrieve data area atau bagian
         $area = DB::table('tbl_master_bagian')->get();

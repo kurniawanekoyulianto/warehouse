@@ -11,7 +11,7 @@
 |
 */
 
-//Home
+// home
 Route::get('/', function () {
     return view('home');
 });
@@ -25,12 +25,12 @@ Route::get('/daftar-users','UsersController@daftarUsers')->middleware('login');
 Route::get('/tabel-users','UsersController@tabelUsers')->middleware('login');
 Route::get('/blog-users','UsersController@blogUsers')->middleware('login');
 
-//Users
+// users
 Route::get('/users', function () {
     return view('users');
 });
 
-//Blok Gudang
+// blok
 Route::get('/blok','BlokController@index')->name('blok.index');
 Route::get('/blok-add','BlokController@create')->name('blok.create');
 Route::get('/blok/d/{id}','BlokController@destroy')->name('blok.destroy');
@@ -41,32 +41,35 @@ Route::post('/blok/update','BlokController@update')->name('blok.update');
 // barang
 Route::get('/barang','BarangController@index')->name('barang.index');
 
-//Scanner
+// mesin
+Route::get('/mesin','MesinController@index')->name('mesin.index');
+
+// scanner
 Route::get('/scanner', function () {
     return view('scanner');
 });
 
-//Penerimaan
+// penerimaan
 Route::get('/penerimaan', function () {
     return view('penerimaan');
 });
 
-//Pengeluaran
+// pengeluaran
 Route::get('/pengeluaran', function () {
     return view('pengeluaran');
 });
 
-//Mapping Gudang
+// mapping
 Route::get('/mapping', function () {
     return view('mapping');
 });
 
-//Cek Stok
+// cek stok
 Route::get('/cekstok', function () {
     return view('cekstok');
 });
 
-//Ubah Password
+// ubah password
 Route::get('/ubah-password', function () {
     return view('ubah-password');
 });
