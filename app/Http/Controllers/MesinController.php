@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 class MesinController extends Controller
 {
     public function index(){
-        $mesin = DB::table('tbl_master_mesin')->orderBy('nama_mesin','asc')->get();
+        $mesin = DB::select('SELECT * FROM vw_master_gd_mesin');
         return view('mesin', ['mesin' => $mesin]);
     }
 }

@@ -1,5 +1,5 @@
 @extends('header')
-@section('title', 'Barang - PT. Solo Murni')
+@section('title', 'Bagian - PT. Solo Murni')
 
 @section('konten')
     <!-- ============================================================== -->
@@ -9,7 +9,7 @@
         <!-- Start Page -->
         <div class="row bg-title">
             <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                <h4 class="page-title">Daftar Barang</h4> 
+                <h4 class="page-title">Daftar Bagian</h4> 
             </div>
         </div>
 
@@ -17,8 +17,6 @@
             <div class="col-md-12">
                 <!-- white box -->
                 <div class="white-box">
-                    <div class="col-md-2"></div>
-                    <div class="col-md-10" align="right">{{ $barang->links() }}</div>
                     <h3 class="box-title m-b-0">Export Data</h3>
                     <p class="text-muted m-b-30">Export data ke Copy, CSV, Excel, PDF & Print</p>
                     <div class="table-responsive">
@@ -27,32 +25,17 @@
                                 <tr>
                                     <th style="width: 20px">No.</th>
                                     <th>Kode</th>
-                                    <th>Nama Barang</th>
-                                    <th>Satuan</th>
+                                    <th>Nama Bagian</th>
                                 </tr>
                             </thead>
                             
-                            {{-- <tbody>
-                                @foreach($barang as $chunk)
-                                    @foreach($chunk as $b)
-                                        <tr>
-                                            <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $b->kode_barang }}</td>
-                                            <td>{{ strtoupper($b->nama_barang) }}</td>
-                                            <td>{{ $b->satuan }}</td>
-                                        </tr>
-                                    @endforeach
-                                @endforeach
-                            </tbody> --}}
-
                             <tbody>
-                                @foreach($barang as $b)
-                                    <tr>
-                                        <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $b->kode_barang }}</td>
-                                        <td>{{ strtoupper($b->nama_barang) }}</td>
-                                        <td>{{ $b->satuan }}</td>
-                                    </tr>
+                                @foreach ($bagian as $b)
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $b->kode_bagian }}</td>
+                                    <td>{{ strtoupper($b->nama_bagian) }}</td>
+                                </tr>
                                 @endforeach
                             </tbody>
                         </table>

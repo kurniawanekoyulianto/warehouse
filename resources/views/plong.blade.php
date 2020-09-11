@@ -1,5 +1,5 @@
 @extends('header')
-@section('title', 'Mesin - PT. Solo Murni')
+@section('title', 'Plong - PT. Solo Murni')
 
 @section('konten')
     <!-- ============================================================== -->
@@ -9,8 +9,18 @@
         <!-- Start Page -->
         <div class="row bg-title">
             <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                <h4 class="page-title">Daftar Mesin</h4> 
+                <h4 class="page-title">Daftar Plong Gudang</h4> 
             </div>
+            
+            <div class="col-lg-7 col-md-4 col-sm-4 col-xs-12"></div>
+
+            <div class="col-lg-2 col-md-4 col-sm-4 col-xs-12">
+                <form action="{{ route('plong.create') }}">
+                    <button class="btn btn-success btn-md btn-block btn-rounded text-uppercase waves-effect waves-light" type="submit">Tambah Data</button>
+                </form>
+            </div>
+
+            <!-- /.col-lg-12 -->
         </div>
 
         <div class="row">
@@ -25,18 +35,24 @@
                                 <tr>
                                     <th style="width: 20px">No.</th>
                                     <th>Kode</th>
-                                    <th>Nama Mesin</th>
-                                    <th>Bagian</th>
+                                    <th>Nama Plong</th>
+                                    <th>Tingkat</th>
+                                    <th>QR Code</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             
                             <tbody>
-                                @foreach ($mesin as $m)
+                                @foreach($blok as $b)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $m->kode_mesin }}</td>
-                                    <td>{{ strtoupper($m->nama_mesin) }}</td>
-                                    <td>{{ strtoupper($m->nama_bagian) }}</td>
+                                    <td>{{ $b->kode_gudang_blok }}</td>
+                                    <td>{{ $b->nama_gd_blok }}</td>
+                                    <td>{{ strtoupper($b->nama_bagian) }}</td>
+                                    <td>
+                                        <a href="/blok/u/{{ $b->id_gd_blok }}"><button type="button" class="btn btn-info btn-circle"><i class="fa fa-pencil"></i></button></a>
+                                        <a href="/blok/d/{{ $b->id_gd_blok }}"><button type="button" class="btn btn-danger btn-circle"><i class="fa fa-times"></i> </button></a>
+                                    </td>
                                 </tr>
                                 @endforeach
                             </tbody>

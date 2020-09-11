@@ -38,11 +38,28 @@ Route::get('/blok/u/{id}','BlokController@edit')->name('blok.edit');
 Route::post('/blok/save','BlokController@store')->name('blok.store');
 Route::post('/blok/update','BlokController@update')->name('blok.update');
 
+// plong
+Route::get('/plong','PlongController@index')->name('plong.index');
+Route::get('/plong-add','PlongController@create')->name('plong.create');
+Route::get('/plong/d/{id}','PlongController@destroy')->name('plong.destroy');
+Route::get('/plong/u/{id}','PlongController@edit')->name('plong.edit');
+Route::post('/plong/save','PlongController@store')->name('plong.store');
+Route::post('/plong/update','PlongController@update')->name('plong.update');
+
 // barang
 Route::get('/barang','BarangController@index')->name('barang.index');
 
 // mesin
 Route::get('/mesin','MesinController@index')->name('mesin.index');
+
+// bagian
+Route::get('/bagian','BagianController@index')->name('bagian.index');
+
+// konversi
+Route::get('/konversi','KonversiController@index')->name('konversi.index');
+
+// satuan
+Route::get('/satuan','SatuanController@index')->name('satuan.index');
 
 // scanner
 Route::get('/scanner', function () {

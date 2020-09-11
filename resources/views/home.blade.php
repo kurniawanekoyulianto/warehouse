@@ -1,5 +1,5 @@
 @extends('header')
-@section('title', 'Home - PT. Solo Murni')
+@section('title', 'Dashboard - PT. Solo Murni')
 
 @section('konten')
     <!-- ============================================================== -->
@@ -9,13 +9,13 @@
         <!-- Start Page -->
         <div class="row bg-title">
             <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                <h4 class="page-title">Starter Page</h4> </div>
+                <h4 class="page-title">Dashboard</h4> </div>
             <!-- /.col-lg-12 -->
         </div>
         <div class="row">
             <div class="col-md-12">
                 <div class="white-box">
-                    <h3 class="box-title">Blank page</h3> </div>
+                    <h3 class="box-title">Statistik</h3> </div>
             </div>
         </div>
         <!-- End Page -->
