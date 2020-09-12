@@ -16,7 +16,7 @@ class BlokController extends Controller
     // Route ke form input blok
     public function create() {
         // retrieve data area atau bagian
-        $area =  DB::select('SELECT * FROM tbl_master_bagian');
+        $area =  DB::select('SELECT * FROM tbl_master_gd_bagian');
         return view('form.form-blok', ['data' => $area]);
     }
 

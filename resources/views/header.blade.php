@@ -152,6 +152,7 @@
                             <li><a href="{{ url('/konversi') }}"><i class="mdi mdi-scale fa-fw"></i> <span class="hide-menu">Konversi</span></a></li>
                             <li><a href="{{ url('/bagian') }}"><i data-icon="&#xe025;" class="mdi mdi-apps fa-fw"></i> <span class="hide-menu">Bagian</span></a></li>
                             <li><a href="{{ url('/blok') }}"><i data-icon="&#xe025;" class="mdi mdi-factory fa-fw"></i> <span class="hide-menu">Blok</span></a></li>
+                            <li><a href="{{ url('/tingkat') }}"><i data-icon="&#xe025;" class="mdi mdi-widgets fa-fw"></i> <span class="hide-menu">Tingkat</span></a></li>
                             <li><a href="{{ url('/plong') }}"><i class="mdi mdi-layers fa-fw"></i> <span class="hide-menu">Plong</span></a></li>
                         </ul>
                     </li>

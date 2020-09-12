@@ -11,35 +11,35 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="white-box">
-                    <h3 class="box-title">Formulir Tambah Plong </h3> 
-                    <form class="form-horizontal" action="{{ route('plong.store') }}" method="POST" >
+                    <h3 class="box-title">Formulir Tambah Tingkat </h3> 
+                    <form class="form-horizontal" action="{{ route('tingkat.store') }}" method="POST" >
                         {{ csrf_field() }}
                         <div class="form-group"> 
                             <div class="col-md-12">
-                                <label class="col-md-12">Kode Plong</label>
+                                <label class="col-md-12">Kode Tingkat</label>
                                 <div class="col-md-12">
-                                    <input type="text" id="nomor_gd_plong" name="nomor_gd_plong" class="form-control" required> 
+                                    <input type="text" id="kode_gudang_tingkat" name="kode_gudang_tingkat" class="form-control" required> 
                                 </div>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-md-12">
-                                <label class="col-md-12">Nama Plong</label>
+                                <label class="col-md-12">Nama Tingkat</label>
                                 <div class="col-md-12">
-                                    <input type="text" id="nama_gd_plong" name="nama_gd_plong" class="form-control" required> 
+                                    <input type="text" id="nama_gd_tingkat" name="nama_gd_tingkat" class="form-control" required> 
                                 </div>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-md-12">
-                                <label class="col-md-12">Tingkat</label>
+                                <label class="col-md-12">Blok</label>
                                 <div class="col-md-12">
-                                    <select class="form-control select2" name="id_gd_tingkat" required>
-                                        <option value="">Pilih Tingkat</option>
-                                        @foreach ($tingkat as $t)
-                                    <option value="{{ $t->id_gd_tingkat }}">Tingkat {{ strtoupper($t->nama_gd_tingkat) }} - Blok {{ $t->nama_gd_blok }}</option>
+                                    <select class="form-control select2" name="id_gd_blok" required>
+                                        <option value="">Pilih Blok</option>
+                                        @foreach ($blok as $b)
+                                            <option value="{{ $b->id_gd_blok }}">{{ strtoupper($b->nama_gd_blok) }}</option>
                                         @endforeach
                                     </select> 
                                 </div>

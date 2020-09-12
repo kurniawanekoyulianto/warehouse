@@ -1,5 +1,5 @@
 @extends('header')
-@section('title', 'Plong - PT. Solo Murni')
+@section('title', 'Tingkat - PT. Solo Murni')
 
 @section('konten')
     <!-- ============================================================== -->
@@ -9,13 +9,13 @@
         <!-- Start Page -->
         <div class="row bg-title">
             <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                <h4 class="page-title">Daftar Plong Gudang</h4> 
+                <h4 class="page-title">Daftar Tingkat Gudang</h4> 
             </div>
             
             <div class="col-lg-7 col-md-4 col-sm-4 col-xs-12"></div>
 
             <div class="col-lg-2 col-md-4 col-sm-4 col-xs-12">
-                <form action="{{ route('plong.create') }}">
+                <form action="{{ route('tingkat.create') }}">
                     <button class="btn btn-success btn-md btn-block btn-rounded text-uppercase waves-effect waves-light" type="submit">Tambah Data</button>
                 </form>
             </div>
@@ -34,25 +34,23 @@
                             <thead>
                                 <tr>
                                     <th style="width: 20px">No.</th>
-                                    <th>Kode</th>
-                                    <th>Nama Plong</th>
-                                    <th>Tingkat</th>
-                                    <th>QR Code</th>
+                                    <th>Kode Tingkat</th>
+                                    <th>Nama Tingkat</th>
+                                    <th>Nama Blok</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             
                             <tbody>
-                                @foreach($plong  as $p)
+                                @foreach($tingkat as $t)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $p->nomor_gd_plong }}</td>
-                                    <td>{{ $p->nama_gd_plong }}</td>
-                                    <td>{{ $p->nama_gd_tingkat }}</td>
-                                    <td>{{ $p->qrcode }}</td>
+                                    <td>{{ $t->kode_gudang_tingkat }}</td>
+                                    <td>{{ $t->nama_gd_tingkat }}</td>
+                                    <td>{{ strtoupper($t->nama_gd_blok) }}</td>
                                     <td>
-                                        <a href="/plong/u/{{ $p->id_gd_plong }}"><button type="button" class="btn btn-info btn-circle"><i class="fa fa-pencil"></i></button></a>
-                                        <a href="/plong/d/{{ $p->id_gd_plong }}"><button type="button" class="btn btn-danger btn-circle"><i class="fa fa-times"></i> </button></a>
+                                        <a href="/tingkat/u/{{ $t->id_gd_tingkat }}"><button type="button" class="btn btn-info btn-circle"><i class="fa fa-pencil"></i></button></a>
+                                        <a href="/tingkat/d/{{ $t->id_gd_tingkat }}"><button type="button" class="btn btn-danger btn-circle"><i class="fa fa-times"></i> </button></a>
                                     </td>
                                 </tr>
                                 @endforeach

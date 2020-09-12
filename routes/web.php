@@ -46,6 +46,14 @@ Route::get('/plong/u/{id}','PlongController@edit')->name('plong.edit');
 Route::post('/plong/save','PlongController@store')->name('plong.store');
 Route::post('/plong/update','PlongController@update')->name('plong.update');
 
+// tingkat
+Route::get('/tingkat','TingkatController@index')->name('tingkat.index');
+Route::get('/tingkat-add','TingkatController@create')->name('tingkat.create');
+Route::get('/tingkat/d/{id}','TingkatController@destroy')->name('tingkat.destroy');
+Route::get('/tingkat/u/{id}','TingkatController@edit')->name('tingkat.edit');
+Route::post('/tingkat/save','TingkatController@store')->name('tingkat.store');
+Route::post('/tingkat/update','TingkatController@update')->name('tingkat.update');
+
 // barang
 Route::get('/barang','BarangController@index')->name('barang.index');
 
@@ -89,4 +97,13 @@ Route::get('/cekstok', function () {
 // ubah password
 Route::get('/ubah-password', function () {
     return view('ubah-password');
+});
+
+Route::get('qr-code-g', function () {
+    $tgl = date('ymd').'221';
+
+    QrCode::size(0)
+            ->format('svg')
+            ->generate($tgl, public_path('qrcode/'.$tgl.'.svg'));
+    return view('qrCode', ['qrcode' => $tgl]);
 });
