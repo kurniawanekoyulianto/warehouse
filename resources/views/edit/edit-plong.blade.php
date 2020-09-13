@@ -8,37 +8,37 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="white-box">
-                    <h3 class="box-title">Edit Blok</h3> 
+                    <h3 class="box-title">Edit Plong</h3> 
                     @foreach($data as $d)
-                    <form class="form-horizontal" action="{{ route('blok.update') }}" method="POST" >
+                    <form class="form-horizontal" action="{{ route('plong.update') }}" method="POST" >
                         {{ csrf_field() }}
-                        <input type="hidden" id="id_gd_blok" name="id_gd_blok" class="form-control" value="{{ $d->id_gd_blok }}">
+                        <input type="hidden" id="id_gd_plong" name="id_gd_plong" class="form-control" value="{{ $d->id_gd_plong }}">
                         <div class="form-group"> 
                             <div class="col-md-12">
-                                <label class="col-md-12">Kode Blok</label>
+                                <label class="col-md-12">Kode Plong</label>
                                 <div class="col-md-12">
-                                <input type="text" id="kode_gudang_blok" name="kode_gudang_blok" class="form-control" value="{{ $d->kode_gudang_blok }}" required> 
+                                <input type="text" id="nomor_gd_plong" name="nomor_gd_plong" class="form-control" value="{{ $d->nomor_gd_plong }}" required> 
                                 </div>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-md-12">
-                                <label class="col-md-12">Nama Blok</label>
+                                <label class="col-md-12">Nama Plong</label>
                                 <div class="col-md-12">
-                                    <input type="text" id="nama_gd_blok" name="nama_gd_blok" class="form-control" value="{{ $d->nama_gd_blok }}" required> 
+                                    <input type="text" id="nama_gd_plong" name="nama_gd_plong" class="form-control" value="{{ $d->nama_gd_plong }}" required> 
                                 </div>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-md-12">
-                                <label class="col-md-12">Area</label>
+                                <label class="col-md-12">Tingkat</label>
                                 <div class="col-md-12">
-                                    <select class="form-control select2" name="kode_bagian" required>
-                                        <option value="{{ $d->kode_bagian }}">{{ strtoupper($d->nama_bagian) }}</option>
-                                        @foreach ($bagian as $b)
-                                        <option value="{{ $b->kode_bagian }}">{{ strtoupper($b->nama_bagian) }}</option>
+                                    <select class="form-control select2" name="id_gd_tingkat" required>
+                                        <option value="{{ $d->id_gd_tingkat }}">Tingkat {{ strtoupper($d->nama_gd_tingkat) }} - Blok {{ $d->nama_gd_blok }}</option>
+                                        @foreach ($tingkat as $t)
+                                        <option value="{{ $t->id_gd_tingkat }}">Tingkat {{ strtoupper($t->nama_gd_tingkat) }} - Blok {{ $t->nama_gd_blok }}</option>
                                         @endforeach
                                     </select> 
                                 </div>

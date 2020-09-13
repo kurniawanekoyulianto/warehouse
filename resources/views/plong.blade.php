@@ -37,7 +37,8 @@
                                     <th>Kode</th>
                                     <th>Nama Plong</th>
                                     <th>Tingkat</th>
-                                    <th>QR Code</th>
+                                    <th>Code</th>
+                                    <th>QR</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -48,8 +49,10 @@
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $p->nomor_gd_plong }}</td>
                                     <td>{{ $p->nama_gd_plong }}</td>
-                                    <td>{{ $p->nama_gd_tingkat }}</td>
+                                    <td>Tingkat {{ $p->nama_gd_tingkat }} - Blok {{ $p->nama_gd_blok }}</td>
                                     <td>{{ $p->qrcode }}</td>
+                                    <td><img src="{{ url('/qrcode/plong') }}/{{ $p->qrcode }}.svg" alt="" height="100" width="100"></td>
+                                    
                                     <td>
                                         <a href="/plong/u/{{ $p->id_gd_plong }}"><button type="button" class="btn btn-info btn-circle"><i class="fa fa-pencil"></i></button></a>
                                         <a href="/plong/d/{{ $p->id_gd_plong }}"><button type="button" class="btn btn-danger btn-circle"><i class="fa fa-times"></i> </button></a>
