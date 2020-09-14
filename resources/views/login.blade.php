@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="author" content="">
-<link rel="icon" type="image/png" sizes="16x16" href="ampleadmin/images/logo-kiky.png">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ url('/') }}/ampleadmin/images/logo-kiky.png">
 <title>Login - PT. Solo Murni</title>
 <!-- Bootstrap Core CSS -->
 <link href="ampleadmin/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -32,7 +32,7 @@
 <section id="wrapper" class="new-login-register">
     <div class="lg-info-panel">
         <div class="inner-panel">
-            <a href="javascript:void(0)" class="p-20 di"><img src="ampleadmin/images/admin-logo.png"></a>
+            <a href="javascript:void(0)" class="p-20 di"><img src="{{ url('/') }}/ampleadmin/images/box-logo.png"></a>
             <div class="lg-content">
                 <h2><b>GUDANG BAHAN PEMBANTU</b></h2>
                 <p class="text-muted" align="center">Aplikasi untuk Monitoring & Mapping Stok Barang di Gudang Bahan Pembantu <br> {{date("Y")}} &copy; PT. Solo Murni, Indonesia</p>
@@ -53,34 +53,38 @@
                 </div>
             @endif --}}
             
-            <form class="form-horizontal new-lg-form" id="loginform" action="{{ url('/login') }}" method="POST">
+            <form class="form-horizontal new-lg-form" id="loginform" action="{{ route('users.proses') }}" method="POST">
+                {{ csrf_field() }}
                 <div class="form-group  m-t-20">
                     <div class="col-xs-12">
                         <label>NIK Karyawan</label>
-                        <input class="form-control text-uppercase" type="text" required="" id="username" name="username" value="{{ old('username') }}" placeholder="NIK">
+                        <input class="form-control text-uppercase" type="text" id="username" name="username" value="{{ old('username') }}" placeholder="NIK">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-xs-12">
                         <label>Kata Sandi</label>
-                        <input class="form-control" type="password" required="" placeholder="Kata Sandi">
+                        <input class="form-control" type="password" name="password" placeholder="Kata Sandi">
                     </div>
                 </div>
 
                 <div class="form-group text-center m-t-20">
                     <div class="col-xs-6">
-                        <button class="btn btn-danger btn-md btn-block btn-rounded text-uppercase waves-effect waves-light" type="submit">Masuk</button>
+                        <button class="btn btn-success btn-md btn-block btn-rounded text-uppercase waves-effect waves-light" type="submit">Masuk</button>
                     </div>
                     <div class="col-xs-6">
-                        <button class="btn btn-primary btn-md btn-block btn-rounded text-uppercase waves-effect waves-light" type="reset">Reset</button>
+                        <button class="btn btn-danger btn-md btn-block btn-rounded text-uppercase waves-effect waves-light" type="reset">Reset</button>
                     </div>
                 </div>
-
-                {{-- @error('username')
-                    <div class="text-danger">{{ $message }}</div>
-                @enderror --}}
             </form>
+
+            {{-- Notifikasi Login --}}
+            @if(session()->has('notifikasi'))
+                <div class="alert alert-warning" align="center">
+                    {{ session()->get('notifikasi') }}
+                </div>
+            @endif
         </div>
     </div>            
 </section>

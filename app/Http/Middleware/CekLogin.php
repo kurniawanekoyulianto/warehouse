@@ -16,10 +16,10 @@ class CekLogin
 
     public function handle($request, Closure $next)
     {
-        if (session()->has('username')) {
+        if (session()->has('nama')) {
             return $next($request);
         } else {
-            return redirect('/login')->with('Pesan', 'Maaf, silahkan login terlebih dahulu!');
+            return redirect('/login')->with('notifikasi', 'Maaf, silahkan login terlebih dahulu!');
         }
     }
 }

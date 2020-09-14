@@ -96,20 +96,20 @@
                 </ul>
                 <ul class="nav navbar-top-links navbar-right pull-right">
                     <li class="dropdown">
-                        <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"> <img src="{{ url('/') }}/ampleadmin/images/users/varun.jpg" alt="user-img" width="36" class="img-circle"><b class="hidden-xs">Administrator</b><span class="caret"></span> </a>
+                        <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"> <img src="{{ url('/') }}/ampleadmin/images/users/varun.jpg" alt="user-img" width="36" class="img-circle"><b class="hidden-xs">{{ session()->get('nama') }}</b><span class="caret"></span> </a>
                         <ul class="dropdown-menu dropdown-user animated flipInY">
                             <li>
                                 <div class="dw-user-box">
                                     <div class="u-img"><img src="{{ url('/') }}/ampleadmin/images/users/varun.jpg" alt="user" /></div>
                                     <div class="u-text">
-                                        <h4>Administrator</h4>
+                                        <h4>{{ session()->get('nama') }}</h4>
                                         <p class="text-muted">Super Admin</p><a href="profile.html" class="btn btn-rounded btn-danger btn-sm">View Profile</a></div>
                                 </div>
                             </li>
                             <li role="separator" class="divider"></li>
                             <li><a href="#"><i class="ti-settings"></i> Account Setting</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+                            <li><a href="/logout"><i class="fa fa-power-off"></i> Logout</a></li>
                         </ul>
                         <!-- /.dropdown-user -->
                     </li>
@@ -132,11 +132,11 @@
                 <div class="user-profile">
                     <div class="dropdown user-pro-body">
                         <div><img src="{{ url('/') }}/ampleadmin/images/users/varun.jpg" alt="user-img" class="img-circle"></div>
-                        <a href="#" class="dropdown-toggle u-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Administrator <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle u-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> {{ session()->get('nama') }} <span class="caret"></span></a>
                         <ul class="dropdown-menu animated flipInY">
                             <li><a href="#"><i class="ti-settings"></i> Account Setting</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+                            <li><a href="/logout"><i class="fa fa-power-off"></i> Logout</a></li>
                         </ul>
                     </div>
                 </div>

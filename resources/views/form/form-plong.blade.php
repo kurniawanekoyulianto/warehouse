@@ -39,7 +39,7 @@
                                     <select class="form-control select2" name="id_gd_tingkat" required>
                                         <option value="">Pilih Tingkat</option>
                                         @foreach ($tingkat as $t)
-                                    <option value="{{ $t->id_gd_tingkat }}">Tingkat {{ strtoupper($t->nama_gd_tingkat) }} - Blok {{ $t->nama_gd_blok }}</option>
+                                    <option value="{{ $t->id_gd_tingkat }}">Tingkat {{ strtoupper($t->nama_gd_tingkat) }} - Blok     {{ $t->nama_gd_blok }}</option>
                                         @endforeach
                                     </select> 
                                 </div>
