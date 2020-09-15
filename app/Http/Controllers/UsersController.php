@@ -16,8 +16,12 @@ class UsersController extends Controller
             'username' => 'required',
             'password' => 'required',
         ]);
-
+        
+        // cek akses
         $validasiUsers = DB::select("SELECT * FROM vw_gudang_login_akses where nik = '". $request->username."' AND password ='".$request->password."'");
+
+        // tampilkan semua menu sesuai user id
+        
         
         // jika data ada dalam array atau not null
         // maka buat session sesuai 'username'

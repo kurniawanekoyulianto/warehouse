@@ -147,6 +147,7 @@
                     <li> <a href="#" class="waves-effect"><i class="mdi mdi-database fa-fw"></i> <span class="hide-menu">Data Master<span class="fa arrow"></span></span></a>
                         <ul class="nav nav-second-level">
                             <li><a href="{{ url('/barang') }}"><i class="mdi mdi-archive fa-fw"></i> <span class="hide-menu">Barang</span></a></li>
+                            <li><a href="{{ url('/supplier') }}"><i class="mdi mdi-account-card-details fa-fw"></i> <span class="hide-menu">Supplier</span></a></li>
                             <li><a href="{{ url('/mesin') }}"><i class="mdi mdi-engine fa-fw"></i> <span class="hide-menu">Mesin</span></a></li>
                             <li><a href="{{ url('/satuan') }}"><i class="mdi mdi-weight-kilogram fa-fw"></i> <span class="hide-menu">Satuan</span></a></li>
                             <li><a href="{{ url('/konversi') }}"><i class="mdi mdi-scale fa-fw"></i> <span class="hide-menu">Konversi</span></a></li>

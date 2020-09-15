@@ -1,5 +1,5 @@
 @extends('header')
-@section('title', 'Mesin - PT. Solo Murni')
+@section('title', 'Supplier - PT. Solo Murni')
 
 @section('konten')
     <!-- ============================================================== -->
@@ -9,7 +9,7 @@
         <!-- Start Page -->
         <div class="row bg-title">
             <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                <h4 class="page-title">Daftar Mesin</h4> 
+                <h4 class="page-title">Daftar Supplier</h4> 
             </div>
         </div>
 
@@ -25,18 +25,24 @@
                                 <tr>
                                     <th style="width: 20px">No.</th>
                                     <th>Kode</th>
-                                    <th>Nama Mesin</th>
-                                    <th>Bagian</th>
+                                    <th>Nama Supplier</th>
+                                    <th>Alamat 1</th>
+                                    <th>Alamat 2</th>
+                                    <th>Telp 1</th>
+                                    <th>Telp 2</th>
                                 </tr>
                             </thead>
                             
                             <tbody>
-                                @foreach ($mesin as $m)
+                                @foreach ($supplier as $s)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $m->kode_mesin }}</td>
-                                    <td>{{ strtoupper($m->nama_mesin) }}</td>
-                                    <td>{{ strtoupper($m->nama_bagian) }}</td>
+                                    <td>{{ $s->kode_supplier }}</td>
+                                    <td>{{ strtoupper($s->nama_supplier) }}</td>
+                                    <td>{{ strtoupper($s->alamat_1) }}</td>
+                                    <td>{{ strtoupper($s->alamat_2) }}</td>
+                                    <td>{{ strtoupper($s->telp_1) }}</td>
+                                    <td>{{ strtoupper($s->telp_2) }}</td>
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -50,3 +56,4 @@
     </div>
     @include('footer')
 @endsection
+

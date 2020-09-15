@@ -65,6 +65,9 @@ Route::get('/konversi','KonversiController@index')->name('konversi.index')->midd
 // satuan
 Route::get('/satuan','SatuanController@index')->name('satuan.index')->middleware('login');
 
+// supplier
+Route::get('/supplier','SupplierController@index')->name('supplier.index')->middleware('login');
+
 // scanner
 Route::get('/scanner', function () {
     return view('scanner');
