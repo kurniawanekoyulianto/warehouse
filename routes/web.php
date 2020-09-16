@@ -51,6 +51,9 @@ Route::post('/plong/save','PlongController@store')->name('plong.store')->middlew
 Route::post('/plong/update','PlongController@update')->name('plong.update')->middleware('login');
 
 // barang
+Route::get('/real','RealController@index')->name('real.index')->middleware('login');
+
+// barang
 Route::get('/barang','BarangController@index')->name('barang.index')->middleware('login');
 
 // mesin
