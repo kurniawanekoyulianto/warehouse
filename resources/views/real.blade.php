@@ -29,22 +29,18 @@
                                     <th>Form</th>
                                     <th>Nomor</th>
                                     <th>Tanggal</th>
+                                    <th>JOP</th>
+                                    <th>Kode</th>
+                                    <th>Barang</th>
+                                    <th>Jumlah</th>
+                                    <th>Satuan</th>
+                                    <th>Bagian</th>
+                                    <th>Mesin</th>
                                     <th>Gudang</th>
+                                    <th>NIK</th>
+                                    <th>Admin</th>
                                 </tr>
                             </thead>
-                            
-                            {{-- <tbody>
-                                @foreach($barang as $chunk)
-                                    @foreach($chunk as $b)
-                                        <tr>
-                                            <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $b->kode_barang }}</td>
-                                            <td>{{ strtoupper($b->nama_barang) }}</td>
-                                            <td>{{ $b->satuan }}</td>
-                                        </tr>
-                                    @endforeach
-                                @endforeach
-                            </tbody> --}}
 
                             <tbody>
                                 @foreach($real as $r)
@@ -53,8 +49,16 @@
                                         <td>{{ $r->form }}</td>
                                         <td>{{ strtoupper($r->nomor) }}</td>
                                         <td>{{ date('d-m-Y', strtotime($r->tanggal)) }}</td>
-                                        <td>{{ strtoupper($r->nama_bagian) }}</td>
-                                        <td>{{ strtoupper($r->nama_lengkap) }}</td>
+                                        <td>{{ strtoupper($r->no_jop) }}</td>
+                                        <td>{{ strtoupper($r->kode_barang) }}</td>
+                                        <td>{{ strtoupper($r->barang) }}</td>
+                                        <td>{{ strtoupper($r->jumlah) }}</td>
+                                        <td>{{ strtoupper($r->satuan) }}</td>
+                                        <td>{{ strtoupper($r->bagian) }}</td>
+                                        <td>{{ strtoupper($r->mesin) }}</td>
+                                        <td>{{ strtoupper($r->gudang) }}</td>
+                                        <td>{{ strtoupper($r->nik) }}</td>
+                                        <td>{{ strtoupper($r->karyawan) }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
