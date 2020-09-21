@@ -20,7 +20,7 @@ class RealController extends Controller
         return view('real', ['real' => $blog]);
     }
 
-    public function paginateArray($data, $perPage = 25000)
+    public function paginateArray($data, $perPage = 10000)
     {
         $page = Paginator::resolveCurrentPage();
         $total = count($data);

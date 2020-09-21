@@ -9,7 +9,8 @@ class SupplierController extends Controller
 {
     public function index(){
         // sementara pakai tbl -> nanti pakai hasil import dari MySQL
-        $supplier = DB::select('SELECT * FROM tbl_master_gd_supplier');
+        $supplier = DB::table('tbl_master_gd_supplier')->get();
         return view('supplier', ['supplier' => $supplier]);
+        // return $supplier;
     }
 }

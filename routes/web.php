@@ -50,8 +50,13 @@ Route::get('/plong/u/{id}','PlongController@edit')->name('plong.edit')->middlewa
 Route::post('/plong/save','PlongController@store')->name('plong.store')->middleware('login');
 Route::post('/plong/update','PlongController@update')->name('plong.update')->middleware('login');
 
-// barang
+// realisasi
 Route::get('/real','RealController@index')->name('real.index')->middleware('login');
+
+// transaksi BPB
+Route::get('/bpb','TransaksiController@bpb')->name('bpb.index')->middleware('login');
+Route::get('/bpb/{nomor}/{kode}','TransaksiController@nomorbpb')->name('bpb.edit')->middleware('login');
+Route::post('/bpb/save', 'TransaksiController@saveMapping')->name('bpb.save')->middleware('login');
 
 // barang
 Route::get('/barang','BarangController@index')->name('barang.index')->middleware('login');
@@ -74,11 +79,6 @@ Route::get('/supplier','SupplierController@index')->name('supplier.index')->midd
 // scanner
 Route::get('/scanner', function () {
     return view('scanner');
-})->middleware('login');
-
-// penerimaan
-Route::get('/penerimaan', function () {
-    return view('penerimaan');
 })->middleware('login');
 
 // pengeluaran

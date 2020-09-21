@@ -92,9 +92,15 @@
                 });
             });
         });
-
-
+        
         $('#example23').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+                'copy', 'csv', 'excel', 'pdf', 'print'
+            ]
+        });
+
+        $('#example24').DataTable({
             dom: 'Bfrtip',
             buttons: [
                 'copy', 'csv', 'excel', 'pdf', 'print'
@@ -111,11 +117,32 @@
             autoclose: true,
             todayHighlight: true
         });
+
         jQuery('#date-range').datepicker({
             toggleActive: true
         });
+
         jQuery('#datepicker-inline').datepicker({
             todayHighlight: true
+        });
+
+        // untuk qty di form-bpb
+        $("input[name='qty_total']").TouchSpin({
+            min: 0,
+            max: 99999999,
+            step: 0.01,
+            decimals: 2,
+            boostat: 5,
+            maxboostedstep: 10
+        });
+
+        $("input[name='qty_satuan']").TouchSpin({
+            min: 0,
+            max: 99999999,
+            step: 0.01,
+            decimals: 2,
+            boostat: 5,
+            maxboostedstep: 10
         });
     </script>
     

@@ -80,7 +80,7 @@
             <div class="navbar-header" style="background-color:#ec0000">
                 <div class="top-left-part">
                     <!-- Logo -->
-                    <a class="logo" href="{{ url('/home') }}">
+                    <a class="logo" href="{{ url('/') }}">
                         <!-- Logo icon image, you can use font-icon also --><b>
                         <!--This is dark logo icon--><img src="{{ url('/') }}/ampleadmin/images/box-logo.png" alt="home" class="dark-logo" /><!--This is light logo icon--><img src="{{ url('/') }}/ampleadmin/images/box-logo-dark.png" alt="home" class="light-logo" />
                      </b>
@@ -142,7 +142,7 @@
                 </div>
 
                 <ul class="nav" id="side-menu">
-                    <li> <a href="{{ url('/home') }}" class="waves-effect "><i class="mdi mdi-av-timer fa-fw" data-icon="v"></i> <span class="hide-menu"> Dashboard </span></a></li>
+                    <li> <a href="{{ url('/') }}" class="waves-effect "><i class="mdi mdi-av-timer fa-fw" data-icon="v"></i> <span class="hide-menu"> Dashboard </span></a></li>
                     
                     <li> <a href="#" class="waves-effect"><i class="mdi mdi-database fa-fw"></i> <span class="hide-menu">Data Master<span class="fa arrow"></span></span></a>
                         <ul class="nav nav-second-level">
@@ -158,9 +158,9 @@
                         </ul>
                     </li>
                     
-                    <li> <a href="{{ url('/penerimaan') }}" class="waves-effect"><i class="mdi mdi-archive fa-fw"></i> <span class="hide-menu">Penerimaan</span></a></li>
+                    <li> <a href="{{ url('/real') }}" class="waves-effect"><i class="mdi mdi-archive fa-fw"></i> <span class="hide-menu">Realisasi</span></a></li>  
 
-                    <li> <a href="{{ url('/pengeluaran') }}" class="waves-effect"><i class="mdi mdi-cube-send fa-fw"></i> <span class="hide-menu">Pengeluaran</span></a></li>
+                    <li> <a href="{{ url('/bpb') }}" class="waves-effect"><i class="mdi mdi-cube-send fa-fw"></i> <span class="hide-menu">BPB</span></a></li>
 
                     <li> <a href="{{ url('/mapping') }}" class="waves-effect"><i class="mdi mdi-map-marker-radius fa-fw"></i> <span class="hide-menu">Mapping Stok</span></a></li>
 

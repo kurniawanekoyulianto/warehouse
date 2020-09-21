@@ -9,7 +9,7 @@
         <!-- Start Page -->
         <div class="row bg-title">
             <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                <h4 class="page-title">Daftar Supplier</h4> 
+                <h4 class="page-title">CETAK QRCODE BARANG</h4> 
             </div>
         </div>
 
@@ -25,7 +25,7 @@
                                 <tr>
                                     <th style="width: 20px">No.</th>
                                     <th>Kode</th>
-                                    <th>Nama Supplier</th>
+                                    <th>Nama</th>
                                     <th>Alamat 1</th>
                                     <th>Alamat 2</th>
                                     <th>Telp 1</th>
@@ -37,7 +37,7 @@
                                 @foreach ($supplier as $s)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $s->kode_supplier }}</td>
+                                    <td>{{ $s->kode_customer_supplier }}</td>
                                     <td>{{ strtoupper($s->nama_supplier) }}</td>
                                     <td>{{ strtoupper($s->alamat_1) }}</td>
                                     <td>{{ strtoupper($s->alamat_2) }}</td>

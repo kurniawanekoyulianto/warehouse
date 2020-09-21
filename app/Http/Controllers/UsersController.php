@@ -28,6 +28,7 @@ class UsersController extends Controller
         if ($validasiUsers <> null) {
             if (($validasiUsers['0']->nik <> '') && ($validasiUsers['0']->password <> '')) {
                 session([
+                    'id_user' => $validasiUsers['0']->id_karyawan,
                     'nik' => $request->username,
                     'nama' => $validasiUsers['0']->nama_lengkap,
                 ]);
