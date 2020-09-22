@@ -110,3 +110,8 @@ Route::get('qr-code-g', function () {
             ->generate($tgl, public_path('qrcode/'.$tgl.'.svg'));
     return view('qrCode', ['qrcode' => $tgl]);
 })->middleware('login');
+
+Route::get('/cek', function () {
+    $kode_barang = 'AA63013410110';
+    return substr($kode_barang, 0, 4);
+});

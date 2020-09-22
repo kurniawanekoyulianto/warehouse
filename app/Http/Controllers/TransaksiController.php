@@ -31,39 +31,45 @@ class TransaksiController extends Controller
         $plong = DB::select('SELECT * FROM vw_master_gd_plong');    
         $tingkat = DB::select('SELECT * FROM vw_master_gd_tingkat');
         $blok = DB::select('SELECT * FROM vw_master_gd_blok');
+        $keperluan = DB::table('tbl_master_gd_keperluan')->get();
 
-        return view('form.form-bpb', ['bpb' => $nomorbpb, 'select' => $selectdata, 'plong'=>$plong, 'tingkat'=>$tingkat, 'satuan'=>$satuan, 'blok'=>$blok]);
+        return view('form.form-bpb', ['bpb' => $nomorbpb, 'select' => $selectdata, 'plong'=>$plong, 'tingkat'=>$tingkat, 'satuan'=>$satuan, 'blok'=>$blok, 'keperluan'=> $keperluan]);
     }
 
     // save mapping & cetak qrcode
     public function saveMapping(Request $request){
         $c_info = DB::select("SELECT * FROM vw_cetak_current_info");
 
-        // total barcode
-        $jml_total = $request->qty_total;
-        $jml_satuan = $request->qty_satuan;
-        $qty_qr = $jml_total / $jml_satuan;
+        //cek single atau multiple QRCode
+        if ($request->jenis_qrcode == "single") { // jika qrcode single
+            // total barcode
+            $jml_total = $request->qty_total;
+            $satuan_total = $request->satuan_total;
+            $jml_satuan = $request->qty_satuan;
+            $satuan_item = $request->satuan_item;
 
-        $tgl_transaksi = $request->tgl_transaksi;
-        $no_transaksi = $request->no_transaksi;
-        $kd_barang = $request->kode_barang;
-        $kode_blok = $request->blok;
-        $id_plong = $request->plong;
-        $id_user = session()->get('id_user');
-        $ip = $c_info['0']->ip_address;
-        $lastupdate = $c_info['0']->tanggal;
-
-
-        for($i = 1; $i<=$qty_qr; $i++){
+            $tgl_transaksi = date('Y-m-d', strtotime($request->tgl_transaksi));
+            $no_transaksi = $request->no_transaksi;
+            $kd_barang = $request->kode_barang;
+            $kode_blok = $request->blok;
+            $id_plong = $request->plong;
+            $id_user = session()->get('id_user');
+            $ip = $c_info['0']->ip_address;
+            $lastupdate = $c_info['0']->tanggal;
+            $keperluan = $request->keperluan;
+            $ket = $request->keterangan;
+            
+            // select id transaksi
             $id_mapping = DB::select("SELECT * FROM vw_gd_id_mapping");
-            $kode_qrcode = $id_mapping['0']->id_gd_mapping . $i;
+            // format QRCode AA63 201231 0000001
+            $kode_bagian = substr($kd_barang, 0, 4);
+            $kode_qrcode = $kode_bagian.$id_mapping['0']->id_gd_mapping;
 
             // generate qrcode
             QrCode::size(0)
             ->format('svg')
             ->generate($kode_qrcode, public_path('qrcode/mapping/'.$kode_qrcode.'.svg'));
         
-
             // insert tbl_barcode
             DB::table('tbl_gd_barcode')->insert([
                 'id_transaksi' => $id_mapping['0']->id_gd_mapping,
@@ -71,26 +77,85 @@ class TransaksiController extends Controller
                 'nomor_transaksi' => $no_transaksi,
                 'kode_barang' => $kd_barang,
                 'qrcode' => $kode_qrcode,
+                'jumlah' => $jml_satuan,
+                'satuan' => $satuan_item,
                 'id_user' => $id_user,
                 'ip_address' => $ip,
                 'lastupdate' => $lastupdate
-           ]);
+            ]);
 
             // insert tbl_mapping
             DB::table('tbl_gd_mapping')->insert([
                 'qrcode' => $kode_qrcode,
                 'id_gd_plong' => $id_plong,
                 'kode_bagian' => $kode_blok,
-                'id_keperluan' => '',
-                'keterangan' => '',
+                'id_keperluan' => $keperluan,
+                'keterangan' => $ket,
                 'id_user' => $id_user,
                 'ip_address' => $ip,
                 'lastupdate' => $lastupdate
-           ]);
+            ]);
+        } else { // jika qrcode multiple
+            // total barcode
+            $jml_total = $request->qty_total;
+            $satuan_total = $request->satuan_total;
+            $jml_satuan = $request->qty_satuan;
+            $satuan_item = $request->satuan_item;
+            $qty_qr = $jml_total / $jml_satuan;
+
+            $tgl_transaksi = date('Y-m-d', strtotime($request->tgl_transaksi));
+            $no_transaksi = $request->no_transaksi;
+            $kd_barang = $request->kode_barang;
+            $kode_blok = $request->blok;
+            $id_plong = $request->plong;
+            $id_user = session()->get('id_user');
+            $ip = $c_info['0']->ip_address;
+            $lastupdate = $c_info['0']->tanggal;
+            $keperluan = $request->keperluan;
+            $ket = $request->keterangan;
+
+            for($i = 1; $i<=$qty_qr; $i++){
+                // select id transaksi
+                $id_mapping = DB::select("SELECT * FROM vw_gd_id_mapping");
+                // format QRCode AA63 201231 0000001
+                $kode_bagian = substr($kd_barang, 0, 4);
+                $kode_qrcode = $kode_bagian.$id_mapping['0']->id_gd_mapping;
+
+                // generate qrcode
+                QrCode::size(0)
+                ->format('svg')
+                ->generate($kode_qrcode, public_path('qrcode/mapping/'.$kode_qrcode.'.svg'));
+
+                // insert tbl_barcode
+                DB::table('tbl_gd_barcode')->insert([
+                    'id_transaksi' => $id_mapping['0']->id_gd_mapping,
+                    'tanggal_transaksi' => $tgl_transaksi,
+                    'nomor_transaksi' => $no_transaksi,
+                    'kode_barang' => $kd_barang,
+                    'qrcode' => $kode_qrcode,
+                    'jumlah' => $jml_satuan,
+                    'satuan' => $satuan_item,
+                    'id_user' => $id_user,
+                    'ip_address' => $ip,
+                    'lastupdate' => $lastupdate
+                ]);
+
+                // insert tbl_mapping
+                DB::table('tbl_gd_mapping')->insert([
+                    'qrcode' => $kode_qrcode,
+                    'id_gd_plong' => $id_plong,
+                    'kode_bagian' => $kode_blok,
+                    'id_keperluan' => $keperluan,
+                    'keterangan' => $ket,
+                    'id_user' => $id_user,
+                    'ip_address' => $ip,
+                    'lastupdate' => $lastupdate
+                ]);
+            }
         }
     }
 
-    public function paginateArray($data, $perPage = 10000)
+    public function paginateArray($data, $perPage = 500)
     {
         $page = Paginator::resolveCurrentPage();
         $total = count($data);

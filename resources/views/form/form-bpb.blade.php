@@ -77,13 +77,24 @@
                 <!-- End white box -->
                 </div>
 
-                <div class="white-box" style="padding-bottom: 100%">
+                <div class="white-box" style="padding-bottom: 122%">
                     <h3 class="box-title m-b-0" >Detail Mapping</h3>
                     {{-- Form Input Mapping --}}
                     @foreach($select as $s)
                     <div class="col-md-4">
                         <form class="form-horizontal" action="{{ route('bpb.save') }}" method="POST" >
                         {{ csrf_field() }}
+                            <div class="form-group">
+                                <label class="col-md-12">Keperluan</label>
+                                <div class="col-md-12">
+                                    <select class="form-control select2" name="keperluan" required>
+                                        @foreach ($keperluan as $kep)
+                                            <option value="{{ $kep->id_gd_keperluan }}">{{ strtoupper($kep->nama_gd_keperluan) }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            
                             <div class="form-group">
                                 <label class="col-md-12">Kode</label>
                                 <div class="col-md-12">
@@ -101,7 +112,7 @@
                             <div class="form-group">
                                 <label class="col-md-12">Tgl Transaksi</label>
                                 <div class="col-md-12">
-                                    <input type="text" id="tgl_transaksi" name="tgl_transaksi" class="form-control" value="{{ $s->tanggal }}" readonly>  
+                                    <input type="text" id="tgl_transaksi" name="tgl_transaksi" class="form-control" value="{{ date('d-m-Y', strtotime($s->tanggal)) }}" readonly>  
                                 </div>
                             </div>
 
@@ -179,6 +190,13 @@
                                         <option value="single">Single QRCode</option>
                                         <option value="multiple">Multiple QRCode</option>
                                     </select> 
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-12">Keterangan</label>
+                                <div class="col-md-12">
+                                    <textarea class="form-control" name="keterangan" rows="5"></textarea>
                                 </div>
                             </div>
 
