@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Pagination\LengthAwarePaginator;
 
-// simple generate QRCode Larave
+// simple generate QRCode Laravel
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class TransaksiController extends Controller
