@@ -112,6 +112,29 @@ Route::get('qr-code-g', function () {
 })->middleware('login');
 
 Route::get('/cek', function () {
-    $kode_barang = 'AA63013410110';
-    return substr($kode_barang, 0, 4);
+    ini_set('max_execution_time', 180); //3 minutes execution time
+    DB::disableQueryLog(); //disable log query
+    
+    for($i = 1; $i<=10000; $i++){
+        // insert tbl_barcode
+        DB::table('tbl_gd_barcode_test_bulk')->insert([
+            'id_barcode' => 2009230000316,
+            'tanggal_barcode' => '2020-09-23 15:21:25',
+            'nomor_transaksi' => '6382020919',
+            'kode_barang' => 'AA632003060125',
+            'qrcode' => 'UAA632009230000316',
+            'id_user' => 3818,
+            'ip_address' => '192.168.1.230',
+            'lastupdate' => '2020-09-23 15:21:25',
+            'qty_fisik' => 1, // karena insert per row jadi qty fisik 1 semua
+            'satuan_fisik' => 'PCS',
+            'qty_ukur' => 99000,
+            'satuan_ukur' => 'PCS',
+            'jns_qrcode' => 'U',
+            'id_gd_plong' => 123421,
+            'kode_bagian' => 'IA90123',
+            'id_keperluan' => 123,
+            'keterangan' => 'COBA',
+        ]);
+    }
 });

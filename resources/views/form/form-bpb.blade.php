@@ -37,11 +37,8 @@
                                     <th>Kode Brg</th>
                                     <th>Nama Brg</th>
                                     <th>Bagian</th>
-                                    <th>Debet</th>
-                                    <th>Kredit</th>
+                                    <th>Qty</th>
                                     <th>Satuan</th>
-                                    <th>Jum. Konv</th>
-                                    <th>Sat. Konv</th>
                                 </tr>
                             </thead>
 
@@ -49,7 +46,11 @@
                                 @foreach($bpb as $b)
                                     <tr>
                                         {{-- <td>{{ $loop->iteration }}</td> --}}
-                                        <td align='center'><a href="/bpb/{{ $b->nomor }}/{{ $b->kode }}"><button type="button" class="btn btn-primary"><i class="fa fa-check-square"></i></button></a></td>
+                                        @if($b->qty > 0) <!-- jika masih ada stok bisa di proses -->
+                                            <td align='center'><a href="/bpb/{{ $b->nomor }}/{{ $b->kode }}"><button type="button" class="btn btn-success"><i class="fa fa-cog fa-spin"></i></button></a></td>
+                                        @else
+                                            <td><span class="label label-rouded label-danger">SELESAI</span></td>
+                                        @endif
                                         <td>{{ $b->form }}</td>
                                         <td>{{ strtoupper($b->nomor) }}</td>
                                         <td>{{ date('d-m-Y', strtotime($b->tanggal)) }}</td>
@@ -63,10 +64,7 @@
                                         <td>{{ strtoupper($b->kode) }}</td>
                                         <td>{{ strtoupper($b->nama_barang) }}</td>
                                         <td>{{ strtoupper($b->nama_bagian) }}</td>
-                                        <td>{{ $b->debet }}</td>
-                                        <td>{{ $b->kredit }}</td>
-                                        <td>{{ strtoupper($b->satuan) }}</td>
-                                        <td>{{ $b->jum_konv }}</td>
+                                        <td>{{ $b->qty }}</td> <!-- Qty Konversi (Sudah dikurangi jumlah yg diinput qrcodenya) -->
                                         <td>{{ strtoupper($b->sat_konv) }}</td>
                                     </tr>
                                 @endforeach
@@ -126,7 +124,7 @@
                             <div class="form-group">                            
                                 <label class="col-md-12">Qty Total</label>
                                 <div class="col-md-12">
-                                    <input id="qty_total" type="text" value="{{ $s->debet }}" name="qty_total" data-bts-button-down-class="btn btn-default btn-outline" data-bts-button-up-class="btn btn-default btn-outline"> 
+                                    <input id="qty_total" type="text" value="{{ $s->qty }}" name="qty_total" data-bts-button-down-class="btn btn-default btn-outline" data-bts-button-up-class="btn btn-default btn-outline"> 
                                 </div>
                             </div>
 
@@ -134,7 +132,7 @@
                                 <label class="col-md-12">Satuan Total</label>
                                 <div class="col-md-12">
                                     <select class="form-control select2" name="satuan_total" required>
-                                        <option value="{{ $s->satuan }}">{{ $s->satuan }}</option>
+                                        <option value="{{ $s->sat_konv }}">{{ $s->sat_konv }}</option>
                                         @foreach ($satuan as $sat)
                                             <option value="{{ $sat->kode_satuan }}">{{ strtoupper($sat->nama_satuan) }}</option>
                                         @endforeach
@@ -143,9 +141,9 @@
                             </div>
 
                             <div class="form-group">                            
-                                <label class="col-md-12">Qty Satuan</label>
+                                <label class="col-md-12">Qty Item</label>
                                 <div class="col-md-12">
-                                    <input id="qty_satuan" type="text" value="{{ $s->debet }}" name="qty_satuan" data-bts-button-down-class="btn btn-default btn-outline" data-bts-button-up-class="btn btn-default btn-outline"> 
+                                    <input id="qty_item" type="text" value="{{ $s->qty }}" name="qty_item" data-bts-button-down-class="btn btn-default btn-outline" data-bts-button-up-class="btn btn-default btn-outline"> 
                                 </div>
                             </div>
 
@@ -153,7 +151,7 @@
                                 <label class="col-md-12">Satuan Item</label>
                                 <div class="col-md-12">
                                     <select class="form-control select2" name="satuan_item" required>
-                                        <option value="{{ $s->satuan }}">{{ $s->satuan }}</option>
+                                        <option value="{{ $s->sat_konv }}">{{ $s->sat_konv }}</option>
                                         @foreach ($satuan as $sat)
                                             <option value="{{ $sat->kode_satuan }}">{{ strtoupper($sat->nama_satuan) }}</option>
                                         @endforeach
@@ -164,9 +162,9 @@
                             <div class="form-group">
                                 <label class="col-md-12">Bagian</label>
                                 <div class="col-md-12">
-                                    <select class="form-control select2" name="blok" required>
-                                    @foreach ($blok as $blok)
-                                        <option value="{{ $blok->id_gd_blok }}">Blok : {{ strtoupper($blok->nama_gd_blok) }}</option>
+                                    <select class="form-control select2" name="bagian" required>
+                                    @foreach ($bagian as $bag)
+                                        <option value="{{ $bag->kode_bagian }}">Bagian : {{ strtoupper($bag->nama_bagian) }}</option>
                                     @endforeach
                                     </select>
                                 </div>
@@ -199,8 +197,12 @@
                                     <textarea class="form-control" name="keterangan" rows="5"></textarea>
                                 </div>
                             </div>
-
-                            <input type="submit" class="btn btn-block btn-success" value="Simpan">
+                            
+                            @if($b->qty > 0) <!-- jika masih ada stok bisa di proses -->
+                                <input type="submit" class="btn btn-block btn-success" value="Simpan">
+                            @else
+                                <input type="submit" class="btn btn-block btn-success" value="Simpan" disabled>
+                            @endif
                         </form>
                     </div>
                     @endforeach
@@ -208,30 +210,33 @@
                     
                     {{-- Tabel Barcode Mapping --}}
                     <div class="col-md-8">
-                        <h3 class="box-title m-b-0" >Export Data</h3>
+                        <h3 class="box-title m-b-0" >Data QRCode</h3>
                         <p class="text-muted m-b-30">Export data ke Copy, CSV, Excel, PDF & Print</p>
                         <div class="table-responsive">
                             <table id="example24" class="display nowrap" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
                                         {{-- <th style="width: 20px">No.</th> --}}
-                                        <th>Barcode</th>
+                                        <th>nomor</th>
                                         <th>Nama Barang</th>
                                         <th>Qty</th>
+                                        <th>Satuan</th>
                                         <th>Bagian</th>
                                         <th>Plong</th>
+                                        <th>QR Code</th>
                                     </tr>
                                 </thead>
     
                                 <tbody>
-                                    @foreach($bpb as $b)
+                                    @foreach($dataqr as $dataqr)
                                         <tr>
-                                            {{-- <td>{{ $loop->iteration }}</td> --}}
-                                            <td>200915 0982 00001</td>
-                                            <td>DUPLEK 400GR 79CM AGARWAL</td>
-                                            <td>10</td>
-                                            <td>GUD.BHN.PBT.BANGAK</td>
-                                            <td>A1.1</td>
+                                            <td>{{ strtoupper($dataqr->nomor_transaksi) }}</td>
+                                            <td>{{ strtoupper($dataqr->nama_barang) }}</td>
+                                            <td>{{ strtoupper($dataqr->qty_ukur) }}</td>
+                                            <td>{{ strtoupper($dataqr->satuan_ukur) }}</td>
+                                            <td>{{ strtoupper($dataqr->nama_bagian) }}</td>
+                                            <td>{{ strtoupper($dataqr->nama_gd_plong) }}</td>
+                                            <td>{{ strtoupper($dataqr->qrcode) }}</td>
                                         </tr>
                                     @endforeach
                                 </tbody>

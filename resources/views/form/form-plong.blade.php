@@ -14,15 +14,6 @@
                     <h3 class="box-title">Formulir Tambah Plong </h3> 
                     <form class="form-horizontal" action="{{ route('plong.store') }}" method="POST" >
                         {{ csrf_field() }}
-                        <div class="form-group"> 
-                            <div class="col-md-12">
-                                <label class="col-md-12">Kode Plong</label>
-                                <div class="col-md-12">
-                                    <input type="text" id="nomor_gd_plong" name="nomor_gd_plong" class="form-control" required> 
-                                </div>
-                            </div>
-                        </div>
-
                         <div class="form-group">
                             <div class="col-md-12">
                                 <label class="col-md-12">Nama Plong</label>

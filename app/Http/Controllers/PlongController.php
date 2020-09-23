@@ -24,7 +24,7 @@ class PlongController extends Controller
     // Insert data ke database
     public function store(Request $request) {
         // pengkodean plong
-        $code_plong = $request->nomor_gd_plong;
+        $code_plong = $request->nama_gd_plong;
 
         // generate qrcode
         QrCode::size(0)
@@ -32,7 +32,6 @@ class PlongController extends Controller
         ->generate($code_plong, public_path('qrcode/plong/'.$code_plong.'.svg'));
 
         DB::table('tbl_master_gd_plong')->insert([
-             'nomor_gd_plong' => $request->nomor_gd_plong,
              'nama_gd_plong' => $request->nama_gd_plong,
              'id_gd_tingkat' => $request->id_gd_tingkat,
              'qrcode' => $code_plong
@@ -56,7 +55,7 @@ class PlongController extends Controller
     // simpan perubahan data plong
     public function update(Request $request){
         // Get code plong
-        $code_plong = $request->nomor_gd_plong;
+        $code_plong = $request->nama_gd_plong;
 
         //generate code plong
         QrCode::size(0)
@@ -65,7 +64,6 @@ class PlongController extends Controller
         
         // update data plong
         DB::table('tbl_master_gd_plong')->where('id_gd_plong', $request->id_gd_plong)->update([
-            'nomor_gd_plong' => $request->nomor_gd_plong,
             'nama_gd_plong' => $request->nama_gd_plong,
             'id_gd_tingkat' => $request->id_gd_tingkat,
             'qrcode' => $code_plong

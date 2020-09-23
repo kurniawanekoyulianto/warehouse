@@ -136,7 +136,7 @@
             maxboostedstep: 10
         });
 
-        $("input[name='qty_satuan']").TouchSpin({
+        $("input[name='qty_item']").TouchSpin({
             min: 0,
             max: 99999999,
             step: 0.01,
