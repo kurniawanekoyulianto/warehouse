@@ -57,6 +57,7 @@ Route::get('/real','RealController@index')->name('real.index')->middleware('logi
 Route::get('/bpb','TransaksiController@bpb')->name('bpb.index')->middleware('login');
 Route::get('/bpb/{nomor}/{kode}','TransaksiController@nomorbpb')->name('bpb.edit')->middleware('login');
 Route::post('/bpb/save', 'TransaksiController@saveMapping')->name('bpb.save')->middleware('login');
+Route::get('/bpb-print/{nomor_transaksi}','TransaksiController@printQRCode')->name('bpb.print')->middleware('login');
 
 // barang
 Route::get('/barang','BarangController@index')->name('barang.index')->middleware('login');

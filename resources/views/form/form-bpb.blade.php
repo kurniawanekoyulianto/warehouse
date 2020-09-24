@@ -241,6 +241,9 @@
                                     @endforeach
                                 </tbody>
                             </table>
+                        </div><br>
+                        <div align="right">
+                                <a href="/bpb-print/{{ $bpb['0']->nomor }}"><button type="button" class="btn btn-warning"><i class="fa fa-print"></i> Print</button></a>
                         </div>
                     </div>
                     {{-- End barcode mapping --}}

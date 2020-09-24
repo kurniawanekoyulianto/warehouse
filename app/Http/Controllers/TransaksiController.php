@@ -24,6 +24,7 @@ class TransaksiController extends Controller
         return view('bpb', ['bpb' => $bpb]);
     }
 
+    // tampilkan semua data bpp sesuai dengan nomor dan kode barang
     public function nomorbpb($nomor, $kode) {
         $nomorbpb = DB::select("SELECT * FROM vw_gd_cek_bpb WHERE nomor = '".$nomor."'");
         $selectdata = DB::select("SELECT * FROM vw_gd_cek_bpb WHERE nomor = '".$nomor."' AND kode = '".$kode."'");
@@ -165,8 +166,8 @@ class TransaksiController extends Controller
         return redirect('/bpb/'.$no_transaksi.'/'.$kd_barang);
     }
 
-    public function paginateArray($data, $perPage = 500)
-    {
+    // fungsi untuk membuat pagination datatable
+    public function paginateArray($data, $perPage = 500){
         $page = Paginator::resolveCurrentPage();
         $total = count($data);
         $results = array_slice($data, ($page - 1) * $perPage, $perPage);
@@ -174,5 +175,11 @@ class TransaksiController extends Controller
         return new LengthAwarePaginator($results, $total, $perPage, $page, [
             'path' => Paginator::resolveCurrentPath(),
         ]);
+    }
+
+    public function printQRCode($nomor_transaksi){
+        // // select data from view 
+        $dataqr = DB::select("SELECT * FROM vw_gd_data_qrcode WHERE nomor_transaksi ='".$nomor_transaksi."'");
+        return view('qrcode.qrcode-print', ['data' => $dataqr]);
     }
 }
