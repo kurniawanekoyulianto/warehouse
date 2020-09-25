@@ -5,19 +5,20 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
+// untuk pagination
+use Illuminate\Pagination\Paginator;
+use Illuminate\Pagination\LengthAwarePaginator;
+
 class PengeluaranController extends Controller
 {
+    // tampilkan semua data view transaksi
     public function index() {
-        $keperluan = DB::select('SELECT * FROM vw_master_gd_keperluan_out');
-        $satuan = DB::select('SELECT * FROM vw_master_gd_satuan');
-        $bagian = DB::table('tbl_master_gd_bagian')->get();
-        $plong = DB::select('SELECT * FROM vw_master_gd_plong');
-        return view('form.form-pengeluaran', [
-            'keperluan' => $keperluan,
-            'satuan' => $satuan,
-            'bagian' => $bagian,
-            'plong' => $plong,
-        ]);
+        ini_set('memory_limit','2048M');
+        $pmbp = $this->paginateArray(
+            DB::select('select * from vw_gd_transaksi_pmbp')
+        );
+
+        return view('pengeluaran', ['pmbp' => $pmbp]);
     }
 
     public function searchItem($qrcode){

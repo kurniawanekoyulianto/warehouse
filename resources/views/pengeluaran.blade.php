@@ -1,5 +1,5 @@
 @extends('header')
-@section('title', 'Data BPB - PT. Solo Murni')
+@section('title', 'Pengeluaran PMBBP - PT. Solo Murni')
 
 @section('konten')
     <!-- ============================================================== -->
@@ -9,7 +9,7 @@
         <!-- Start Page -->
         <div class="row bg-title">
             <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                <h4 class="page-title">CETAK QRCODE BARANG</h4> 
+                <h4 class="page-title">PENGELUARAN BARANG</h4> 
             </div>
         </div>
 
@@ -18,7 +18,7 @@
                 <!-- white box -->
                 <div class="white-box">
                     <div class="col-md-2"></div>
-                    <div class="col-md-10" align="right">{{ $bpb->links() }}</div>
+                    <div class="col-md-10" align="right">{{ $pmbp->links() }}</div>
                     <h3 class="box-title m-b-0">Export Data</h3>
                     <p class="text-muted m-b-30">Export data ke Copy, CSV, Excel, PDF & Print</p>
                     <div class="table-responsive">
@@ -52,7 +52,7 @@
                                 @foreach($pmbp as $pm)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td align='center'><a href="{{ url('/') }}/bpb/{{ $pm->nomor }}/{{ $pm->kode }}"><button type="button" class="btn btn-primary"><i class="fa fa-print"></i></button></a></td>
+                                        <td align='center'><a href="{{ url('/') }}/pengeluaran/{{ $pm->nomor }}/{{ $pm->kode }}"><button type="button" class="btn btn-primary"><i class="fa fa-print"></i></button></a></td>
                                         <td>{{ $pm->form }}</td>
                                         <td>{{ strtoupper($pm->nomor) }}</td>
                                         <td>{{ date('d-m-Y', strtotime($pm->tanggal)) }}</td>
