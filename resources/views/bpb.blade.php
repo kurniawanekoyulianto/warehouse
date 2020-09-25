@@ -52,7 +52,7 @@
                                 @foreach($bpb as $b)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td align='center'><a href="/bpb/{{ $b->nomor }}/{{ $b->kode }}"><button type="button" class="btn btn-primary"><i class="fa fa-print"></i></button></a></td>
+                                        <td align='center'><a href="{{ url('/') }}/bpb/{{ $b->nomor }}/{{ $b->kode }}"><button type="button" class="btn btn-primary"><i class="fa fa-print"></i></button></a></td>
                                         <td>{{ $b->form }}</td>
                                         <td>{{ strtoupper($b->nomor) }}</td>
                                         <td>{{ date('d-m-Y', strtotime($b->tanggal)) }}</td>

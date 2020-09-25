@@ -49,8 +49,8 @@
                                     <td>{{ $b->nama_gd_blok }}</td>
                                     <td>{{ strtoupper($b->nama_bagian) }}</td>
                                     <td>
-                                        <a href="/blok/u/{{ $b->id_gd_blok }}"><button type="button" class="btn btn-info btn-circle"><i class="fa fa-pencil"></i></button></a>
-                                        <a href="/blok/d/{{ $b->id_gd_blok }}"><button type="button" class="btn btn-danger btn-circle"><i class="fa fa-times"></i> </button></a>
+                                        <a href="{{ url('/') }}/blok/u/{{ $b->id_gd_blok }}"><button type="button" class="btn btn-info btn-circle"><i class="fa fa-pencil"></i></button></a>
+                                        <a href="{{ url('/') }}/blok/d/{{ $b->id_gd_blok }}"><button type="button" class="btn btn-danger btn-circle"><i class="fa fa-times"></i> </button></a>
                                     </td>
                                 </tr>
                                 @endforeach

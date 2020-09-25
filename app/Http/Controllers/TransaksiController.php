@@ -28,11 +28,11 @@ class TransaksiController extends Controller
     public function nomorbpb($nomor, $kode) {
         $nomorbpb = DB::select("SELECT * FROM vw_gd_cek_bpb WHERE nomor = '".$nomor."'");
         $selectdata = DB::select("SELECT * FROM vw_gd_cek_bpb WHERE nomor = '".$nomor."' AND kode = '".$kode."'");
-        $satuan = DB::table('tbl_master_gd_satuan')->get();
+        $satuan = DB::select('SELECT * FROM vw_master_gd_satuan');
         $plong = DB::select('SELECT * FROM vw_master_gd_plong');    
         $tingkat = DB::select('SELECT * FROM vw_master_gd_tingkat');
         $bagian = DB::table('tbl_master_gd_bagian')->get();
-        $keperluan = DB::table('tbl_master_gd_keperluan')->get();
+        $keperluan = DB::select("SELECT * FROM vw_master_gd_keperluan_in");
         $dataqr = DB::select("SELECT * FROM vw_gd_data_qrcode WHERE nomor_transaksi ='".$nomor."'");
 
         return view('form.form-bpb', [
@@ -63,6 +63,7 @@ class TransaksiController extends Controller
         $lastupdate = $c_info['0']->tanggal;
         $keperluan = $request->keperluan;
         $ket = $request->keterangan;
+        $form = $request->form;
 
         //cek general atau unique QRCode
         if ($request->jenis_qrcode == "single") { // jika qrcode general
@@ -111,6 +112,7 @@ class TransaksiController extends Controller
                     'kode_bagian' => $bag,
                     'id_keperluan' => $keperluan,
                     'keterangan' => $ket,
+                    'form' => $form,
                 ]);
             }
         } else { // jika qrcode unique
@@ -158,6 +160,7 @@ class TransaksiController extends Controller
                     'kode_bagian' => $bag,
                     'id_keperluan' => $keperluan,
                     'keterangan' => $ket,
+                    'form' => $form,
                 ]);
             }
         }

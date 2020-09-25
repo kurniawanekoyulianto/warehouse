@@ -83,9 +83,7 @@ Route::get('/scanner', function () {
 })->middleware('login');
 
 // pengeluaran
-Route::get('/pengeluaran', function () {
-    return view('pengeluaran');
-})->middleware('login');
+Route::get('/pengeluaran','PengeluaranController@index')->name('pengeluaran.index')->middleware('login');
 
 // mapping
 Route::get('/mapping', function () {
@@ -102,21 +100,11 @@ Route::get('/ubah-password', function () {
     return view('ubah-password');
 })->middleware('login');
 
-// generate qrcode
-Route::get('qr-code-g', function () {
-    $tgl = date('ymd').'221';
-
-    QrCode::size(0)
-            ->format('svg')
-            ->generate($tgl, public_path('qrcode/'.$tgl.'.svg'));
-    return view('qrCode', ['qrcode' => $tgl]);
-})->middleware('login');
-
 Route::get('/cek', function () {
     ini_set('max_execution_time', 180); //3 minutes execution time
     DB::disableQueryLog(); //disable log query
     
-    for($i = 1; $i<=10000; $i++){
+    for($i = 1; $i<=1000; $i++){
         // insert tbl_barcode
         DB::table('tbl_gd_barcode_test_bulk')->insert([
             'id_barcode' => 2009230000316,

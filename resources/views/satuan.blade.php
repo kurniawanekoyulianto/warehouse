@@ -24,7 +24,8 @@
                             <thead>
                                 <tr>
                                     <th style="width: 20px">No.</th>
-                                    <th>Satuan</th>
+                                    <th>Kode Satuan</th>
+                                    <th>Nama Satuan</th>
                                 </tr>
                             </thead>
                             
@@ -32,6 +33,7 @@
                                 @foreach ($satuan as $s)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $s->kode_satuan }}</td>
                                     <td>{{ $s->nama_satuan }}</td>
                                 </tr>
                                 @endforeach

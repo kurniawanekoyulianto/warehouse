@@ -53,7 +53,7 @@
             margin-left: 0px;
             margin-right: 0px;
             font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-            font-size: 7pt;
+            font-size: 6pt;
             text-align: center;
         }
 
@@ -170,5 +170,7 @@
             @endif
         @endforeach
     </table>
+    <br>
+    <a href="{{ url('/') }}/bpb"><button type="button" class="btn btn-success"><i class="fa fa-reply"></i> Kembali</button></a>
 </body>
 </html>

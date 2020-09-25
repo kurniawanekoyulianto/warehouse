@@ -47,7 +47,7 @@
                                     <tr>
                                         {{-- <td>{{ $loop->iteration }}</td> --}}
                                         @if($b->qty > 0) <!-- jika masih ada stok bisa di proses -->
-                                            <td align='center'><a href="/bpb/{{ $b->nomor }}/{{ $b->kode }}"><button type="button" class="btn btn-success"><i class="fa fa-cog fa-spin"></i></button></a></td>
+                                            <td align='center'><a href="{{ url('/') }}/bpb/{{ $b->nomor }}/{{ $b->kode }}"><button type="button" class="btn btn-success"><i class="fa fa-cog fa-spin"></i></button></a></td>
                                         @else
                                             <td><span class="label label-rouded label-danger">SELESAI</span></td>
                                         @endif
@@ -93,6 +93,10 @@
                                 </div>
                             </div>
                             
+                            {{-- Hiddden form untuk kolom BPB --}}
+                            <input type="hidden" id="form" name="form" class="form-control" value="{{ $s->form }}" readonly> 
+                            {{-- End hidden form --}}
+
                             <div class="form-group">
                                 <label class="col-md-12">Kode</label>
                                 <div class="col-md-12">
@@ -134,7 +138,7 @@
                                     <select class="form-control select2" name="satuan_total" required>
                                         <option value="{{ $s->sat_konv }}">{{ $s->sat_konv }}</option>
                                         @foreach ($satuan as $sat)
-                                            <option value="{{ $sat->kode_satuan }}">{{ strtoupper($sat->nama_satuan) }}</option>
+                                            <option value="{{ $sat->kode_satuan }}">{{ strtoupper($sat->kode_satuan) }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -153,7 +157,7 @@
                                     <select class="form-control select2" name="satuan_item" required>
                                         <option value="{{ $s->sat_konv }}">{{ $s->sat_konv }}</option>
                                         @foreach ($satuan as $sat)
-                                            <option value="{{ $sat->kode_satuan }}">{{ strtoupper($sat->nama_satuan) }}</option>
+                                            <option value="{{ $sat->kode_satuan }}">{{ strtoupper($sat->kode_satuan) }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -217,7 +221,7 @@
                                 <thead>
                                     <tr>
                                         {{-- <th style="width: 20px">No.</th> --}}
-                                        <th>nomor</th>
+                                        <th>Nomor</th>
                                         <th>Nama Barang</th>
                                         <th>Qty</th>
                                         <th>Satuan</th>
@@ -243,7 +247,7 @@
                             </table>
                         </div><br>
                         <div align="right">
-                                <a href="/bpb-print/{{ $bpb['0']->nomor }}"><button type="button" class="btn btn-warning"><i class="fa fa-print"></i> Print</button></a>
+                                <a href="{{ url('/') }}/bpb-print/{{ $bpb['0']->nomor }}"><button type="button" class="btn btn-info"><i class="fa fa-print"></i> Print Label</button></a>
                         </div>
                     </div>
                     {{-- End barcode mapping --}}

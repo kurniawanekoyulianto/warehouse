@@ -38,7 +38,7 @@ class BlokController extends Controller
         $blok = DB::select('SELECT * FROM vw_master_gd_blok WHERE id_gd_blok = '.$id);
 
         // retrieve data area atau bagian
-        $area = DB::table('tbl_master_bagian')->get();
+        $area = DB::table('tbl_master_gd_bagian')->get();
         return view('edit.edit-blok', ['data' => $blok, 'bagian' => $area]);
         //return $blok;
     } 

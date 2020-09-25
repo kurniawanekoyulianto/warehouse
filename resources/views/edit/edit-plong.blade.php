@@ -13,14 +13,6 @@
                     <form class="form-horizontal" action="{{ route('plong.update') }}" method="POST" >
                         {{ csrf_field() }}
                         <input type="hidden" id="id_gd_plong" name="id_gd_plong" class="form-control" value="{{ $d->id_gd_plong }}">
-                        <div class="form-group"> 
-                            <div class="col-md-12">
-                                <label class="col-md-12">Kode Plong</label>
-                                <div class="col-md-12">
-                                <input type="text" id="nomor_gd_plong" name="nomor_gd_plong" class="form-control" value="{{ $d->nomor_gd_plong }}" required> 
-                                </div>
-                            </div>
-                        </div>
 
                         <div class="form-group">
                             <div class="col-md-12">

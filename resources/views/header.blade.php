@@ -109,7 +109,7 @@
                             <li role="separator" class="divider"></li>
                             <li><a href="#"><i class="ti-settings"></i> Account Setting</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="/logout"><i class="fa fa-power-off"></i> Logout</a></li>
+                            <li><a href="{{ url('/') }}/logout"><i class="fa fa-power-off"></i> Logout</a></li>
                         </ul>
                         <!-- /.dropdown-user -->
                     </li>
@@ -136,7 +136,7 @@
                         <ul class="dropdown-menu animated flipInY">
                             <li><a href="#"><i class="ti-settings"></i> Account Setting</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="/logout"><i class="fa fa-power-off"></i> Logout</a></li>
+                            <li><a href="{{ url('/') }}/logout"><i class="fa fa-power-off"></i> Logout</a></li>
                         </ul>
                     </div>
                 </div>
@@ -160,7 +160,9 @@
                     
                     <li> <a href="{{ url('/real') }}" class="waves-effect"><i class="mdi mdi-archive fa-fw"></i> <span class="hide-menu">Realisasi</span></a></li>  
 
-                    <li> <a href="{{ url('/bpb') }}" class="waves-effect"><i class="mdi mdi-cube-send fa-fw"></i> <span class="hide-menu">BPB</span></a></li>
+                    <li> <a href="{{ url('/bpb') }}" class="waves-effect"><i class="mdi mdi-package-down fa-fw"></i> <span class="hide-menu">Penerimaan BPB</span></a></li>
+                    
+                    <li> <a href="{{ url('/pengeluaran') }}" class="waves-effect"><i class="mdi mdi-cube-send fa-fw"></i> <span class="hide-menu">Pengeluaran</span></a></li>
 
                     <li> <a href="{{ url('/mapping') }}" class="waves-effect"><i class="mdi mdi-map-marker-radius fa-fw"></i> <span class="hide-menu">Mapping Stok</span></a></li>
 

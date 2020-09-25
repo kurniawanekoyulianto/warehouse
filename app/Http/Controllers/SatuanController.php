@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 class SatuanController extends Controller
 {
     public function index(){
-        $satuan = DB::table('tbl_master_gd_satuan')->paginate(25000);
+        $satuan = DB::select("SELECT * FROM vw_master_gd_satuan");
         return view('satuan', ['satuan' => $satuan]);
     }
 }
