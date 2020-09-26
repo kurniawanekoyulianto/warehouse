@@ -36,7 +36,7 @@
                                     <th style="width: 20px">No.</th>
                                     <th>Nama Plong</th>
                                     <th>Tingkat</th>
-                                    <th>Code</th>
+                                    <th>Gudang</th>
                                     <th>QR</th>
                                     <th>Action</th>
                                 </tr>
@@ -47,11 +47,11 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $p->nama_gd_plong }}</td>
-                                    <td>Tingkat {{ $p->nama_gd_tingkat }} - Blok {{ $p->nama_gd_blok }}</td>
-                                    <td>{{ $p->qrcode }}</td>
+                                    <td>BLOK {{ $p->nama_gd_blok }} - TINGKAT {{ $p->nama_gd_tingkat }}</td>
+                                    <td>{{ strtoupper($p->nama_bagian) }}</td>
                                     <td><img src="{{ url('/qrcode/plong') }}/{{ $p->qrcode }}.svg" alt="" height="100" width="100"></td>
-                                    
                                     <td>
+                                        <a href="{{ url('/') }}/plong-print/{{ $p->id_gd_plong }}"><button type="button" class="btn btn-primary btn-circle"><i class="fa fa-print"></i></button></a>
                                         <a href="{{ url('/') }}/plong/u/{{ $p->id_gd_plong }}"><button type="button" class="btn btn-info btn-circle"><i class="fa fa-pencil"></i></button></a>
                                         <a href="{{ url('/') }}/plong/d/{{ $p->id_gd_plong }}"><button type="button" class="btn btn-danger btn-circle"><i class="fa fa-times"></i> </button></a>
                                     </td>

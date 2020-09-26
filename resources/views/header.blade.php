@@ -158,7 +158,7 @@
                         </ul>
                     </li>
                     
-                    <li> <a href="{{ url('/real') }}" class="waves-effect"><i class="mdi mdi-archive fa-fw"></i> <span class="hide-menu">Realisasi</span></a></li>  
+                    {{-- <li> <a href="{{ url('/real') }}" class="waves-effect"><i class="mdi mdi-archive fa-fw"></i> <span class="hide-menu">Realisasi</span></a></li>   --}}
 
                     <li> <a href="{{ url('/bpb') }}" class="waves-effect"><i class="mdi mdi-package-down fa-fw"></i> <span class="hide-menu">Penerimaan BPB</span></a></li>
                     

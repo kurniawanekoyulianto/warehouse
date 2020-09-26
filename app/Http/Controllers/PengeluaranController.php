@@ -21,6 +21,11 @@ class PengeluaranController extends Controller
         return view('pengeluaran', ['pmbp' => $pmbp]);
     }
 
+    public function nomorpmbp($nomor, $kode){
+        $nomorpmbp = DB::select("SELECT * FROM vw_gd_transaksi_pmbp WHERE nomor = '".$nomor."'");
+        $selectdata = DB::select("SELECT * FROM vw_gd_transaksi_pmbp WHERE nomor = '".$nomor."' AND kode = '".$kode."'");
+    }
+
     public function searchItem($qrcode){
         // get data from tbl_gd_barcode
         $qrcode = DB::select("SELECT * FROM vw_gd_data_qrcode WHERE qrcode = '".$qrcode."'");

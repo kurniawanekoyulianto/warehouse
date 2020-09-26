@@ -34,10 +34,10 @@
 
                         <div class="form-group">
                             <div class="col-md-12">
-                                <label class="col-md-12">Area</label>
+                                <label class="col-md-12">Bagian</label>
                                 <div class="col-md-12">
                                     <select class="form-control select2" name="kode_bagian" required>
-                                        <option value="">Pilih Area</option>
+                                        <option value="">Pilih Bagian</option>
                                         @foreach ($data as $a)
                                             <option value="{{ $a->kode_bagian }}">{{ strtoupper($a->nama_bagian) }}</option>
                                         @endforeach

@@ -10,10 +10,10 @@ class BarangController extends Controller
     // menampilkan semua data barang
     public function index() {
         ini_set('memory_limit','2048M');
-        $barang =  DB::table('tbl_master_gd_barang')->orderBy('nama_barang', 'asc')->Paginate(25000);
-        //$barang =  DB::table('tbl_master_gd_barang')->get();
-        //$chunk = $barang->chunk(50000);
-        //return view('barang', ['barang' => $chunk]);
+        $session_id = session()->get('id_user');
+        $sp = DB::select("SELECT sp_insert_master_barang('".$session_id."', 'AA63');");
+        $barang =  DB::table('tmp_master_gd_barang')->orderBy('nama_barang', 'asc')->Paginate(1000);
+
         return view('barang', ['barang' => $barang]);
     }
 }

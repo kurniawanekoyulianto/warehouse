@@ -16,7 +16,7 @@ class BlokController extends Controller
     // Route ke form input blok
     public function create() {
         // retrieve data area atau bagian
-        $area =  DB::select('SELECT * FROM tbl_master_gd_bagian');
+        $area =  DB::select('SELECT * FROM vw_master_gd_bagian');
         return view('form.form-blok', ['data' => $area]);
     }
 
@@ -38,7 +38,7 @@ class BlokController extends Controller
         $blok = DB::select('SELECT * FROM vw_master_gd_blok WHERE id_gd_blok = '.$id);
 
         // retrieve data area atau bagian
-        $area = DB::table('tbl_master_gd_bagian')->get();
+        $area =  DB::select('SELECT * FROM vw_master_gd_blok');
         return view('edit.edit-blok', ['data' => $blok, 'bagian' => $area]);
         //return $blok;
     } 

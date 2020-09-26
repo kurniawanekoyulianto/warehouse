@@ -1,5 +1,5 @@
 @extends('header')
-@section('title', 'Cetak QRCode - PT. Solo Murni')
+@section('title', 'Pengeluaran Barang - PT. Solo Murni')
 
 @section('konten')
     <!-- ============================================================== -->
@@ -43,29 +43,29 @@
                             </thead>
 
                             <tbody>
-                                @foreach($bpb as $b)
+                                @foreach($pmbp as $pmb)
                                     <tr>
                                         {{-- <td>{{ $loop->iteration }}</td> --}}
                                         @if($b->qty > 0) <!-- jika masih ada stok bisa di proses -->
-                                            <td align='center'><a href="{{ url('/') }}/bpb/{{ $b->nomor }}/{{ $b->kode }}"><button type="button" class="btn btn-success"><i class="fa fa-cog fa-spin"></i></button></a></td>
+                                            <td align='center'><a href="{{ url('/') }}/pengeluaran/{{ $pmb->nomor }}/{{ $pmb->kode }}"><button type="button" class="btn btn-success"><i class="fa fa-cog fa-spin"></i></button></a></td>
                                         @else
                                             <td><span class="label label-rouded label-danger">SELESAI</span></td>
                                         @endif
-                                        <td>{{ $b->form }}</td>
-                                        <td>{{ strtoupper($b->nomor) }}</td>
-                                        <td>{{ date('d-m-Y', strtotime($b->tanggal)) }}</td>
-                                        <td>{{ date('d-m-Y', strtotime($b->tglinsert)) }}</td>
-                                        <td>{{ strtoupper($b->nik) }}</td>
-                                        <td>{{ strtoupper($b->karyawan) }}</td>
-                                        <td>{{ strtoupper($b->urutan) }}</td>
-                                        <td>{{ strtoupper($b->no_reff) }}</td>
-                                        <td>{{ strtoupper($b->no_job) }}</td>
-                                        <td>{{ strtoupper($b->nama_supplier) }}</td>
-                                        <td>{{ strtoupper($b->kode) }}</td>
-                                        <td>{{ strtoupper($b->nama_barang) }}</td>
-                                        <td>{{ strtoupper($b->nama_bagian) }}</td>
-                                        <td>{{ $b->qty }}</td> <!-- Qty Konversi (Sudah dikurangi jumlah yg diinput qrcodenya) -->
-                                        <td>{{ strtoupper($b->sat_konv) }}</td>
+                                        <td>{{ $pmb->form }}</td>
+                                        <td>{{ strtoupper($pmb->nomor) }}</td>
+                                        <td>{{ date('d-m-Y', strtotime($pmb->tanggal)) }}</td>
+                                        <td>{{ date('d-m-Y', strtotime($pmb->tglinsert)) }}</td>
+                                        <td>{{ strtoupper($pmb->nik) }}</td>
+                                        <td>{{ strtoupper($pmb->karyawan) }}</td>
+                                        <td>{{ strtoupper($pmb->urutan) }}</td>
+                                        <td>{{ strtoupper($pmb->no_reff) }}</td>
+                                        <td>{{ strtoupper($pmb->no_job) }}</td>
+                                        <td>{{ strtoupper($pmb->nama_supplier) }}</td>
+                                        <td>{{ strtoupper($pmb->kode) }}</td>
+                                        <td>{{ strtoupper($pmb->nama_barang) }}</td>
+                                        <td>{{ strtoupper($pmb->nama_bagian) }}</td>
+                                        <td>{{ $pmb->qty }}</td> <!-- Qty Konversi (Sudah dikurangi jumlah yg diinput qrcodenya) -->
+                                        <td>{{ strtoupper($pmb->sat_konv) }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -80,7 +80,7 @@
                     {{-- Form Input Mapping --}}
                     @foreach($select as $s)
                     <div class="col-md-4">
-                        <form class="form-horizontal" action="{{ route('bpb.save') }}" method="POST" >
+                        <form class="form-horizontal" action="{{ route('pengeluaran.save') }}" method="POST" >
                         {{ csrf_field() }}
                             <div class="form-group">
                                 <label class="col-md-12">Keperluan</label>
@@ -93,7 +93,7 @@
                                 </div>
                             </div>
                             
-                            {{-- Hiddden form untuk kolom BPB --}}
+                            {{-- Hiddden form untuk kolom PMBBP --}}
                             <input type="hidden" id="form" name="form" class="form-control" value="{{ $s->form }}" readonly> 
                             {{-- End hidden form --}}
 

@@ -79,4 +79,9 @@ class PlongController extends Controller
         // Alihkan halaman ke halaman plong
         return redirect('/plong');
     }
+
+    public function printQrcode($id) {
+        $data = DB::select("SELECT * FROM vw_master_gd_plong where id_gd_plong = '".$id."'");
+        return view('qrcode.qrcode-plong-print', ['data' => $data]);
+    }
 }

@@ -29,19 +29,15 @@ class TransaksiController extends Controller
         $nomorbpb = DB::select("SELECT * FROM vw_gd_cek_bpb WHERE nomor = '".$nomor."'");
         $selectdata = DB::select("SELECT * FROM vw_gd_cek_bpb WHERE nomor = '".$nomor."' AND kode = '".$kode."'");
         $satuan = DB::select('SELECT * FROM vw_master_gd_satuan');
-        $plong = DB::select('SELECT * FROM vw_master_gd_plong');    
-        $tingkat = DB::select('SELECT * FROM vw_master_gd_tingkat');
-        $bagian = DB::table('tbl_master_gd_bagian')->get();
+        $plong = DB::select('SELECT * FROM vw_master_gd_plong');
         $keperluan = DB::select("SELECT * FROM vw_master_gd_keperluan_in");
         $dataqr = DB::select("SELECT * FROM vw_gd_data_qrcode WHERE nomor_transaksi ='".$nomor."'");
 
         return view('form.form-bpb', [
             'bpb' => $nomorbpb, 
             'select' => $selectdata, 
-            'plong' => $plong, 
-            'tingkat' => $tingkat, 
-            'satuan' => $satuan, 
-            'bagian' => $bagian, 
+            'plong' => $plong,
+            'satuan' => $satuan,
             'keperluan' => $keperluan, 
             'dataqr' => $dataqr
         ]);

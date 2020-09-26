@@ -30,21 +30,12 @@
                                     <th>Form</th>
                                     <th>Nomor</th>
                                     <th>Tanggal</th>
-                                    <th>Tgl Masuk</th>
-                                    <th>NIK</th>
-                                    <th>Admin</th>
-                                    <th>Urutan</th>
-                                    <th>No. Reff</th>
-                                    <th>JOP</th>
                                     <th>Supplier</th>
                                     <th>Kode Brg</th>
                                     <th>Nama Brg</th>
                                     <th>Bagian</th>
                                     <th>Debet</th>
-                                    <th>Kredit</th>
                                     <th>Satuan</th>
-                                    <th>Jum. Konv</th>
-                                    <th>Sat. Konv</th>
                                 </tr>
                             </thead>
 
@@ -56,19 +47,10 @@
                                         <td>{{ $b->form }}</td>
                                         <td>{{ strtoupper($b->nomor) }}</td>
                                         <td>{{ date('d-m-Y', strtotime($b->tanggal)) }}</td>
-                                        <td>{{ date('d-m-Y', strtotime($b->tglinsert)) }}</td>
-                                        <td>{{ strtoupper($b->nik) }}</td>
-                                        <td>{{ strtoupper($b->karyawan) }}</td>
-                                        <td>{{ strtoupper($b->urutan) }}</td>
-                                        <td>{{ strtoupper($b->no_reff) }}</td>
-                                        <td>{{ strtoupper($b->no_job) }}</td>
                                         <td>{{ strtoupper($b->nama_supplier) }}</td>
                                         <td>{{ strtoupper($b->kode) }}</td>
                                         <td>{{ strtoupper($b->nama_barang) }}</td>
                                         <td>{{ strtoupper($b->nama_bagian) }}</td>
-                                        <td>{{ $b->debet }}</td>
-                                        <td>{{ $b->kredit }}</td>
-                                        <td>{{ strtoupper($b->satuan) }}</td>
                                         <td>{{ $b->jum_konv }}</td>
                                         <td>{{ strtoupper($b->sat_konv) }}</td>
                                     </tr>

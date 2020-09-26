@@ -33,7 +33,7 @@
 
                         <div class="form-group">
                             <div class="col-md-12">
-                                <label class="col-md-12">Area</label>
+                                <label class="col-md-12">Bagian</label>
                                 <div class="col-md-12">
                                     <select class="form-control select2" name="kode_bagian" required>
                                         <option value="{{ $d->kode_bagian }}">{{ strtoupper($d->nama_bagian) }}</option>

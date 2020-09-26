@@ -27,12 +27,7 @@
                                     <th>Form</th>
                                     <th>Nomor</th>
                                     <th>Tanggal</th>
-                                    <th>Tgl Masuk</th>
-                                    <th>NIK</th>
                                     <th>Admin</th>
-                                    <th>Urutan</th>
-                                    <th>No. Reff</th>
-                                    <th>JOP</th>
                                     <th>Supplier</th>
                                     <th>Kode Brg</th>
                                     <th>Nama Brg</th>
@@ -54,12 +49,7 @@
                                         <td>{{ $b->form }}</td>
                                         <td>{{ strtoupper($b->nomor) }}</td>
                                         <td>{{ date('d-m-Y', strtotime($b->tanggal)) }}</td>
-                                        <td>{{ date('d-m-Y', strtotime($b->tglinsert)) }}</td>
-                                        <td>{{ strtoupper($b->nik) }}</td>
                                         <td>{{ strtoupper($b->karyawan) }}</td>
-                                        <td>{{ strtoupper($b->urutan) }}</td>
-                                        <td>{{ strtoupper($b->no_reff) }}</td>
-                                        <td>{{ strtoupper($b->no_job) }}</td>
                                         <td>{{ strtoupper($b->nama_supplier) }}</td>
                                         <td>{{ strtoupper($b->kode) }}</td>
                                         <td>{{ strtoupper($b->nama_barang) }}</td>
@@ -94,7 +84,8 @@
                             </div>
                             
                             {{-- Hiddden form untuk kolom BPB --}}
-                            <input type="hidden" id="form" name="form" class="form-control" value="{{ $s->form }}" readonly> 
+                            <input type="hidden" id="form" name="form" class="form-control" value="{{ $s->form }}" readonly>
+                            <input type="hidden" id="bagian" name="bagian" class="form-control" value="{{ $s->kode_bagian }}" readonly> 
                             {{-- End hidden form --}}
 
                             <div class="form-group">
@@ -164,22 +155,11 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="col-md-12">Bagian</label>
-                                <div class="col-md-12">
-                                    <select class="form-control select2" name="bagian" required>
-                                    @foreach ($bagian as $bag)
-                                        <option value="{{ $bag->kode_bagian }}">Bagian : {{ strtoupper($bag->nama_bagian) }}</option>
-                                    @endforeach
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
                                 <label class="col-md-12">Plong</label>
                                 <div class="col-md-12">
                                     <select class="form-control select2" name="plong" required>
                                     @foreach ($plong as $p)
-                                        <option value="{{ $p->id_gd_plong }}">Plong : {{ strtoupper($p->nama_gd_plong) }}</option>
+                                        <option value="{{ $p->id_gd_plong }}">{{ strtoupper($p->nama_bagian) }} - {{ strtoupper($p->nama_gd_plong) }}</option>
                                     @endforeach
                                     </select>
                                 </div>
@@ -189,8 +169,8 @@
                                 <label class="col-md-12">Jenis QRCode</label>
                                 <div class="col-md-12">
                                     <select class="form-control select2" name="jenis_qrcode" required>
-                                        <option value="single">Single QRCode</option>
-                                        <option value="multiple">Multiple QRCode</option>
+                                        <option value="single">General QRCode</option>
+                                        <option value="multiple">Unique QRCode</option>
                                     </select> 
                                 </div>
                             </div>

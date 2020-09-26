@@ -49,6 +49,7 @@ Route::get('/plong/d/{id}','PlongController@destroy')->name('plong.destroy')->mi
 Route::get('/plong/u/{id}','PlongController@edit')->name('plong.edit')->middleware('login');
 Route::post('/plong/save','PlongController@store')->name('plong.store')->middleware('login');
 Route::post('/plong/update','PlongController@update')->name('plong.update')->middleware('login');
+Route::get('/plong-print/{id}','PlongController@printQrcode')->name('plong.print')->middleware('login');
 
 // realisasi
 Route::get('/real','RealController@index')->name('real.index')->middleware('login');
@@ -84,6 +85,7 @@ Route::get('/scanner', function () {
 
 // pengeluaran
 Route::get('/pengeluaran','PengeluaranController@index')->name('pengeluaran.index')->middleware('login');
+Route::get('/pengeluaran/{nomor}/{kode}','PengeluaranController@nomorpmbp')->name('pengeluaran.edit')->middleware('login');
 
 // mapping
 Route::get('/mapping', function () {
