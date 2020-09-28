@@ -17,24 +17,21 @@
             <div class="col-md-12">
                 <!-- white box -->
                 <div class="white-box">
-                    <div class="col-md-2"></div>
-                    <div class="col-md-10" align="right">{{ $pmbp->links() }}</div>
+                    <div class="col-md-12" align="right">{{ $pmbp->links() }}</div>
                     <h3 class="box-title m-b-0">Export Data</h3>
                     <div class="table-responsive">
                         <table id="example23" class="display nowrap" cellspacing="0" width="100%">
                             <thead>
                                 <tr>
-                                    <th style="width: 20px">No.</th>
+                                    <th style="width: 10px">No.</th>
                                     <th>Action</th>
                                     <th>Form</th>
                                     <th>Nomor</th>
                                     <th>Tanggal</th>
-                                    <th>JOP</th>
                                     <th>Kode Brg</th>
                                     <th>Nama Brg</th>
+                                    <th>JOP</th>
                                     <th>Bagian</th>
-                                    {{-- <th>Kredit</th>
-                                    <th>Satuan</th> --}}
                                     <th>Qty</th>
                                     <th>Satuan</th>
                                 </tr>
@@ -48,14 +45,12 @@
                                         <td>{{ $pm->form }}</td>
                                         <td>{{ strtoupper($pm->nomor) }}</td>
                                         <td>{{ date('d-m-Y', strtotime($pm->tanggal)) }}</td>
-                                        <td>{{ strtoupper($pm->no_job) }}</td>
                                         <td>{{ strtoupper($pm->kode) }}</td>
                                         <td>{{ strtoupper($pm->nama_barang) }}</td>
+                                        <td>{{ strtoupper($pm->no_job) }}</td>
                                         <td>{{ strtoupper($pm->nama_bagian) }}</td>
-                                        {{-- <td>{{ $pm->kredit }}</td>
-                                        <td>{{ strtoupper($pm->satuan) }}</td> --}}
-                                        <td>{{ $pm->jum_konv }}</td>
-                                        <td>{{ strtoupper($pm->sat_konv) }}</td>
+                                        <td>{{ $pm->kredit }}</td>
+                                        <td>{{ strtoupper($pm->satuan) }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>

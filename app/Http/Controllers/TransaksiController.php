@@ -74,7 +74,7 @@ class TransaksiController extends Controller
             $qty_ukur = $qty_tot/$qty_item;
             $satuan_ukur = $satuan_tot;
 
-            $cek_last_id = DB::select("SELECT max(id_barcode) FROM tbl_gd_barcode");
+            $cek_last_id = DB::select("SELECT COALESCE(max(id_barcode), 0) as max FROM tbl_gd_barcode");
             $ldate = substr($cek_last_id['0']->max, 0, 6);
             // cek apakah apakah barcode sudah sesuai format tanggal hari ini?
             if ($ldate == date('ymd')){ // jika sama tidak reset sequence
@@ -136,7 +136,7 @@ class TransaksiController extends Controller
 
             // insert row
             for($i = 1; $i<=$qty_qrcode; $i++){
-                $cek_last_id = DB::select("SELECT max(id_barcode) FROM tbl_gd_barcode");
+                $cek_last_id = DB::select("SELECT COALESCE(max(id_barcode), 0) as max FROM tbl_gd_barcode");
                 $ldate = substr($cek_last_id['0']->max, 0, 6);
                 // cek apakah apakah barcode sudah sesuai format tanggal hari ini?
                 if ($ldate == date('ymd')){ // jika sama tidak reset sequence
@@ -153,7 +153,7 @@ class TransaksiController extends Controller
 
                 // format QRCode U AA63 201231 0000001
                 $kode_bagian = substr($kd_barang, 0, 4);
-                $kode_qrcode = $init.$kode_bagian.$id_mapping['0']->id_gd_mapping;
+                $kode_qrcode = $init.$kode_bagian.$id_qrcode['0']->id_gd_qrcode;
 
                 // generate qrcode
                 QrCode::size(0)

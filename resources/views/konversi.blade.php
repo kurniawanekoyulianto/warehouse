@@ -17,8 +17,7 @@
             <div class="col-md-12">
                 <!-- white box -->
                 <div class="white-box">
-                    <div class="col-md-6"></div>
-                    <div class="col-md-6" align="right">{{ $konversi->links() }}</div>
+                    <div class="col-md-12" align="right">{{ $konversi->links() }}</div>
                     <h3 class="box-title m-b-0">Export Data</h3>
                     <div class="table-responsive">
                         <table id="example23" class="display nowrap" cellspacing="0" width="100%">

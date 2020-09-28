@@ -99,15 +99,15 @@ Route::get('/ubah-password', function () {
 
 //temporary cek ID
 Route::get('/cekid', function () {
-    $cek_last_id = DB::select("SELECT max(id_barcode) FROM tbl_gd_barcode");
+    $cek_last_id = DB::select("SELECT COALESCE(max(id_barcode), 0) as max FROM tbl_gd_barcode");
     $ldate = substr($cek_last_id['0']->max, 0, 6);
-
-    if ($ldate == date('ymd')){
+    return $cek_last_id;
+    // if ($ldate == date('ymd')){
         
-    } else {
-        DB::select("ALTER SEQUENCE id_gd_qrcode_seq RESTART WITH 1");
-        return 'tidak sama';
-    }
+    // } else {
+    //     DB::select("ALTER SEQUENCE id_gd_qrcode_seq RESTART WITH 1");
+    //     return 'tidak sama';
+    // }
 });    
 
 // temporary cek

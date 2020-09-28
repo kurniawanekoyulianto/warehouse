@@ -22,8 +22,11 @@ class PengeluaranController extends Controller
     }
 
     public function nomorpmbp($nomor, $kode){
-        $nomorpmbp = DB::select("SELECT * FROM vw_gd_transaksi_pmbp WHERE nomor = '".$nomor."'");
-        $selectdata = DB::select("SELECT * FROM vw_gd_transaksi_pmbp WHERE nomor = '".$nomor."' AND kode = '".$kode."'");
+        $nomorpmbp = DB::select("SELECT * FROM vw_gd_cek_pmbp WHERE nomor = '".$nomor."'");
+
+        return view('form.form-pmbp',[
+            'pmbp' => $nomorpmbp,
+        ]);
     }
 
     public function searchItem($qrcode){
@@ -34,7 +37,7 @@ class PengeluaranController extends Controller
         $satuan = DB::select('SELECT * FROM vw_master_gd_satuan');
         $bagian = DB::table('tbl_master_gd_bagian')->get();
         $plong = DB::select('SELECT * FROM vw_master_gd_plong');
-        return view('form.form-pengeluaran', [
+        return view('form.form-pmbp', [
             'brg' => $qrcode,
             'stokqr' => $stokqr,
             'keperluan' => $keperluan,
@@ -45,7 +48,7 @@ class PengeluaranController extends Controller
     }
 
     // fungsi untuk membuat pagination datatable
-    public function paginateArray($data, $perPage = 500){
+    public function paginateArray($data, $perPage = 100){
         $page = Paginator::resolveCurrentPage();
         $total = count($data);
         $results = array_slice($data, ($page - 1) * $perPage, $perPage);
