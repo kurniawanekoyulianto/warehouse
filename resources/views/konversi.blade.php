@@ -20,7 +20,6 @@
                     <div class="col-md-6"></div>
                     <div class="col-md-6" align="right">{{ $konversi->links() }}</div>
                     <h3 class="box-title m-b-0">Export Data</h3>
-                    <p class="text-muted m-b-30">Export data ke Copy, CSV, Excel, PDF & Print</p>
                     <div class="table-responsive">
                         <table id="example23" class="display nowrap" cellspacing="0" width="100%">
                             <thead>

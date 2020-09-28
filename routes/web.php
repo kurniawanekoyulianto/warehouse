@@ -78,11 +78,6 @@ Route::get('/satuan','SatuanController@index')->name('satuan.index')->middleware
 // supplier
 Route::get('/supplier','SupplierController@index')->name('supplier.index')->middleware('login');
 
-// scanner
-Route::get('/scanner', function () {
-    return view('scanner');
-})->middleware('login');
-
 // pengeluaran
 Route::get('/pengeluaran','PengeluaranController@index')->name('pengeluaran.index')->middleware('login');
 Route::get('/pengeluaran/{nomor}/{kode}','PengeluaranController@nomorpmbp')->name('pengeluaran.edit')->middleware('login');
@@ -102,6 +97,20 @@ Route::get('/ubah-password', function () {
     return view('ubah-password');
 })->middleware('login');
 
+//temporary cek ID
+Route::get('/cekid', function () {
+    $cek_last_id = DB::select("SELECT max(id_barcode) FROM tbl_gd_barcode");
+    $ldate = substr($cek_last_id['0']->max, 0, 6);
+
+    if ($ldate == date('ymd')){
+        
+    } else {
+        DB::select("ALTER SEQUENCE id_gd_qrcode_seq RESTART WITH 1");
+        return 'tidak sama';
+    }
+});    
+
+// temporary cek
 Route::get('/cek', function () {
     ini_set('max_execution_time', 180); //3 minutes execution time
     DB::disableQueryLog(); //disable log query

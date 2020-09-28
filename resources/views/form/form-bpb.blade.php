@@ -27,10 +27,9 @@
                                     <th>Form</th>
                                     <th>Nomor</th>
                                     <th>Tanggal</th>
-                                    <th>Admin</th>
-                                    <th>Supplier</th>
                                     <th>Kode Brg</th>
                                     <th>Nama Brg</th>
+                                    <th>Supplier</th>
                                     <th>Bagian</th>
                                     <th>Qty</th>
                                     <th>Satuan</th>
@@ -49,11 +48,10 @@
                                         <td>{{ $b->form }}</td>
                                         <td>{{ strtoupper($b->nomor) }}</td>
                                         <td>{{ date('d-m-Y', strtotime($b->tanggal)) }}</td>
-                                        <td>{{ strtoupper($b->karyawan) }}</td>
-                                        <td>{{ strtoupper($b->nama_supplier) }}</td>
                                         <td>{{ strtoupper($b->kode) }}</td>
                                         <td>{{ strtoupper($b->nama_barang) }}</td>
                                         <td>{{ strtoupper($b->nama_bagian) }}</td>
+                                        <td>{{ strtoupper($b->nama_supplier) }}</td>
                                         <td>{{ $b->qty }}</td> <!-- Qty Konversi (Sudah dikurangi jumlah yg diinput qrcodenya) -->
                                         <td>{{ strtoupper($b->sat_konv) }}</td>
                                     </tr>

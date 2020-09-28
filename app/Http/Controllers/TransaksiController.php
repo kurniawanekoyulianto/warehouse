@@ -45,7 +45,7 @@ class TransaksiController extends Controller
 
     // save mapping & cetak qrcode
     public function saveMapping(Request $request){
-        ini_set('max_execution_time', 180); //3 minutes execution time
+        ini_set('max_execution_time', 300); //5 minutes execution time
         DB::disableQueryLog(); //disable log query
         $c_info = DB::select("SELECT * FROM vw_cetak_current_info");
 
@@ -74,8 +74,19 @@ class TransaksiController extends Controller
             $qty_ukur = $qty_tot/$qty_item;
             $satuan_ukur = $satuan_tot;
 
-            // select id qrcode
-            $id_qrcode = DB::select("SELECT * FROM vw_gd_id_qrcode");
+            $cek_last_id = DB::select("SELECT max(id_barcode) FROM tbl_gd_barcode");
+            $ldate = substr($cek_last_id['0']->max, 0, 6);
+            // cek apakah apakah barcode sudah sesuai format tanggal hari ini?
+            if ($ldate == date('ymd')){ // jika sama tidak reset sequence
+                // select id qrcode
+                $id_qrcode = DB::select("SELECT * FROM vw_gd_id_qrcode");
+            } else { //jika beda maka reset sequence dan kembali ke 1
+                // reset sequence
+                DB::select("ALTER SEQUENCE id_gd_qrcode_seq RESTART WITH 1");
+                // select id qrcode
+                $id_qrcode = DB::select("SELECT * FROM vw_gd_id_qrcode");
+            }
+
             // format QRCode G AA63 201231 0000001
             $kode_bagian = substr($kd_barang, 0, 4);
             $kode_qrcode = $init.$kode_bagian.$id_qrcode['0']->id_gd_qrcode;
@@ -125,9 +136,21 @@ class TransaksiController extends Controller
 
             // insert row
             for($i = 1; $i<=$qty_qrcode; $i++){
+                $cek_last_id = DB::select("SELECT max(id_barcode) FROM tbl_gd_barcode");
+                $ldate = substr($cek_last_id['0']->max, 0, 6);
+                // cek apakah apakah barcode sudah sesuai format tanggal hari ini?
+                if ($ldate == date('ymd')){ // jika sama tidak reset sequence
+                    // select id qrcode
+                    $id_qrcode = DB::select("SELECT * FROM vw_gd_id_qrcode");
+                } else { //jika beda maka reset sequence dan kembali ke 1
+                    // reset sequence
+                    DB::select("ALTER SEQUENCE id_gd_qrcode_seq RESTART WITH 1");
+                    // select id qrcode
+                    $id_qrcode = DB::select("SELECT * FROM vw_gd_id_qrcode");
+                }
+                
                 $id_mapping = DB::select("SELECT * FROM vw_gd_id_mapping");
-                // select id qrcode
-                $id_qrcode = DB::select("SELECT * FROM vw_gd_id_qrcode");
+
                 // format QRCode U AA63 201231 0000001
                 $kode_bagian = substr($kd_barang, 0, 4);
                 $kode_qrcode = $init.$kode_bagian.$id_mapping['0']->id_gd_mapping;
@@ -177,7 +200,7 @@ class TransaksiController extends Controller
     }
 
     public function printQRCode($nomor_transaksi){
-        // // select data from view 
+        // select data from view 
         $dataqr = DB::select("SELECT * FROM vw_gd_data_qrcode WHERE nomor_transaksi ='".$nomor_transaksi."'");
         return view('qrcode.qrcode-print', ['data' => $dataqr]);
     }
