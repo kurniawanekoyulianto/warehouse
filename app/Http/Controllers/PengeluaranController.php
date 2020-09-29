@@ -48,7 +48,7 @@ class PengeluaranController extends Controller
     }
 
     // fungsi untuk membuat pagination datatable
-    public function paginateArray($data, $perPage = 100){
+    public function paginateArray($data, $perPage = 500){
         $page = Paginator::resolveCurrentPage();
         $total = count($data);
         $results = array_slice($data, ($page - 1) * $perPage, $perPage);

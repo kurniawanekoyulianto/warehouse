@@ -40,7 +40,7 @@
                                     <tr>
                                         {{-- <td>{{ $loop->iteration }}</td> --}}
                                         @if($pmb->qty > 0) <!-- jika masih ada stok bisa di proses -->
-                                            <td align='center'><a href="{{ url('/') }}/pengeluaran/{{ $pmb->nomor }}/{{ $pmb->kode }}"><button type="button" class="btn btn-success"><i class="fa fa-cog fa-spin"></i></button></a></td>
+                                            <td align='center'><a href="{{ url('/') }}/pengeluaran/{{ $pmb->nomor }}/{{ $pmb->kode }}"><button type="button" class="btn btn-success"><i class="fa fa-qrcode"></i></button></a></td>
                                         @else
                                             <td><span class="label label-rouded label-danger">SELESAI</span></td>
                                         @endif
